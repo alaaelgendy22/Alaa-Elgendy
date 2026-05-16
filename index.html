@@ -422,41 +422,126 @@ nav{
 .proj-tags{display:flex;flex-wrap:wrap;gap:4px;}
 .proj-tag{font-size:.62rem;font-weight:700;padding:3px 9px;border-radius:3px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.18);color:#7dd3fc;}
 
-  /* ─── (Certificates) ─── */
-#certificates {
-  --cert-glow: #7c3aed;
-  --cert-cyan: #22d3ee;
-  --cert-emerald: #10b981;
+/* ─── CERTIFICATES SECTION STYLING ─── */
+.cert-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* المسافة بين كل بوكس والتاني */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
-  width: 100%; max-width: 1300px; margin: 0 auto;
-}
-.cert-card {
-  position: relative; border-radius: 20px; overflow: hidden; cursor: pointer;
+
+/* البوكس الكبير اللي شايل الشهادة والمعلومات */
+.cert-box {
+  display: flex;
   background: rgba(12, 18, 52, 0.6);
-  border: 1px solid rgba(139, 92, 246, .18);
-  backdrop-filter: blur(24px) saturate(1.4);
-  transition: box-shadow .4s ease, border-color .4s ease;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 24px;
+  overflow: visible !important; /* عشان فقاعات المهارات تطير */
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  min-height: 450px;
 }
-.cert-card:hover {
-  border-color: rgba(139, 92, 246, .45);
-  box-shadow: 0 24px 60px rgba(0,0,0,.6), 0 0 60px rgba(109,40,217,.18);
+
+.cert-box:hover {
+  border-color: var(--cyan);
+  transform: translateY(-5px);
 }
-.cert-img-wrap {
-  position: relative; overflow: hidden; aspect-ratio: 16/9; background: rgba(4, 7, 26, .4);
+
+/* النصف الأيسر: الصورة */
+.cert-visual {
+  flex: 1.2;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border-right: 1px solid rgba(139, 92, 246, 0.1);
+  cursor: pointer;
+  position: relative;
 }
-.cert-img-wrap img {
-  width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.22,1,.36,1);
+
+.cert-visual img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
-.cert-card:hover .cert-img-wrap img { transform: scale(1.05); }
-.cert-body { padding: 20px; }
-.cert-issuer { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
-.cert-issuer-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald); box-shadow: 0 0 8px var(--emerald); }
-.cert-issuer-name { font-family: 'JetBrains Mono', monospace; font-size: .65rem; font-weight: 700; color: var(--emerald); text-transform: uppercase; }
-.cert-title { font-size: 1rem; font-weight: 800; color: #fff; line-height: 1.3; }
+
+/* النصف الأيمن: المعلومات */
+.cert-info {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cert-tag {
+  color: var(--cyan);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.cert-name {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.cert-description {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 1rem;
+}
+
+/* التولز والمهارات */
+.cert-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.tool-tag {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #eee;
+}
+
+/* المهارات الطائرة */
+.skill-bubble {
+  position: absolute;
+  z-index: 100;
+  background: var(--violet-m);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  pointer-events: none;
+  animation: flyOut 1.5s forwards;
+}
+
+@keyframes flyOut {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.5); }
+}
+
+/* Responsive لضبط الشكل على الموبايل */
+@media (max-width: 900px) {
+  .cert-box { flex-direction: column; }
+  .cert-visual { border-right: none; border-bottom: 1px solid rgba(139, 92, 246, 0.1); }
+}
 
 /* ─── أيقونة الماستك (Mascot) الثابتة ─── */
 #mascot-wrap {
@@ -827,55 +912,36 @@ footer{
   
 <!-- ══════════════ certificates ══════════════ -->
 <section class="sec" id="certificates" data-idx="5">
-  <div style="width:100%; max-width:1300px; margin:0 auto; position:relative;">
+  <div class="cert-container">
     
-    <div class="eyebrow rv">
-      <span class="etag" data-en="Credentials" data-ar="الشهادات">Credentials</span>
-      <span class="eline"></span>
-    </div>
-    
-    <h2 class="stitle rv" data-en="Interactive <span class='g'>Certifications</span>" data-ar="الشهادات <span class='g'>التفاعلية</span>">
-      Interactive <span class="g">Certifications</span>
-    </h2>
-
-    <div class="cert-flex-container">
-      <div class="cert-hero-card rv" onclick="launchSkills(this)">
-        <div class="cert-glow"></div>
-        <div class="cert-img-container">
-          <img src="CERTIFICATE_LANDING_PAGE~N9BGYZ8IOOP5.jpeg" alt="Google Data Analytics Professional Certificate">
-        </div>
-        <div class="click-hint" data-en="Click to reveal skills" data-ar="اضغطي لإظهار المهارات">Click to reveal skills</div>
+    <div class="cert-box rv">
+      <div class="cert-visual" onclick="launchSkills(this)">
+        <img src="CERTIFICATE_LANDING_PAGE~N9BGYZ8IOOP5.jpeg" alt="Google Data Analytics">
+        <div style="position:absolute; bottom:15px; font-size:0.6rem; color:var(--muted);">CLICK IMAGE FOR SKILLS</div>
       </div>
-
-      <div class="cert-details rv">
-        <div class="importance-arrow">
-          <svg viewBox="0 0 24 24" width="24" height="24">
-            <path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z" fill="white"/>
-          </svg>
-        </div>
-        
-        <h3 class="detail-title" data-en="Why This Matters" data-ar="لماذا هذه الشهادة؟">Why This Matters</h3>
-        
-        <p class="detail-text" 
-           data-en="This specialization validates my proficiency in the entire data analysis process—from asking the right questions to data cleaning, SQL analysis, R programming, and Tableau visualization." 
-           data-ar="تؤكد هذه الشهادة كفاءتي في عملية تحليل البيانات بالكامل؛ بدءاً من طرح الأسئلة الصحيحة، ومروراً بتنظيف البيانات وتحليلها باستخدام SQL، وصولاً للبرمجة بلغة R والتمثيل البصري عبر Tableau.">
-           This specialization validates my proficiency in the entire data analysis process...
+      
+      <div class="cert-info">
+        <div class="cert-tag">Specialization</div>
+        <h3 class="cert-name">Google Data Analytics</h3>
+        <p class="cert-description">
+          Mastering the full data analysis process: from data cleaning and SQL analysis to R programming and visualization with Tableau.
         </p>
         
-        <div class="skills-learned-grid">
-          <div class="skill-mini-card"><span>SQL</span></div>
-          <div class="skill-mini-card"><span>Python</span></div>
-          <div class="skill-mini-card"><span>R Programming</span></div>
-          <div class="skill-mini-card"><span>Tableau</span></div>
-          <div class="skill-mini-card"><span>Spreadsheets</span></div>
+        <div class="cert-tools">
+          <span class="tool-tag">SQL</span>
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">Tableau</span>
+          <span class="tool-tag">R Programming</span>
+          <span class="tool-tag">Spreadsheets</span>
         </div>
         
-        <button class="btn btn-v" onclick="window.open('https://www.coursera.org/account/accomplishments/specialization/N9BGYZ8IOOP5', '_blank')" style="margin-top:25px;">
-          <span data-en="Verify Credential" data-ar="تحقق من الشهادة">Verify Credential</span>
+        <button class="btn btn-v" onclick="window.open('https://www.coursera.org/account/accomplishments/specialization/N9BGYZ8IOOP5', '_blank')">
+          Verify Credential
         </button>
       </div>
     </div>
-  </div>
+
+    </div>
 </section>
 <!-- ══════════════ CONTACT ══════════════ -->
 <section class="sec" id="contact" data-idx="6">
