@@ -422,127 +422,170 @@ nav{
 .proj-tags{display:flex;flex-wrap:wrap;gap:4px;}
 .proj-tag{font-size:.62rem;font-weight:700;padding:3px 9px;border-radius:3px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.18);color:#7dd3fc;}
 
-/* ─── CERTIFICATES SECTION STYLING ─── */
+/* --- ENHANCED CERTIFICATE CONTAINER --- */
 .cert-container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px; /* المسافة بين كل بوكس والتاني */
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-/* البوكس الكبير اللي شايل الشهادة والمعلومات */
 .cert-box {
-  display: flex;
-  background: rgba(12, 18, 52, 0.6);
-  border: 1px solid rgba(139, 92, 246, 0.2);
-  border-radius: 24px;
-  overflow: visible !important; /* عشان فقاعات المهارات تطير */
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  min-height: 450px;
+    display: flex;
+    background: rgba(12, 18, 52, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 24px;
+    overflow: visible !important;
+    backdrop-filter: blur(15px);
+    transition: transform 0.4s ease;
+    min-height: 500px;
 }
 
 .cert-box:hover {
-  border-color: var(--cyan);
-  transform: translateY(-5px);
+    transform: translateY(-8px);
+    border-color: #22d3ee;
 }
 
-/* النصف الأيسر: الصورة */
+/* Left Side: Image Area */
 .cert-visual {
-  flex: 1.2;
-  background: rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  border-right: 1px solid rgba(139, 92, 246, 0.1);
-  cursor: pointer;
-  position: relative;
+    flex: 1.2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(139, 92, 246, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
 .cert-visual img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
-/* النصف الأيمن: المعلومات */
+/* Right Side: Content Area */
 .cert-info {
-  flex: 1;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.cert-tag {
-  color: var(--cyan);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-  text-transform: uppercase;
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .cert-name {
-  font-size: 2rem;
-  color: #fff;
-  margin-bottom: 20px;
-  line-height: 1.2;
+    font-size: 2.4rem;
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 20px;
 }
 
-.cert-description {
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 25px;
-  font-size: 1rem;
+/* Real Icons Grid */
+.tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
 }
 
-/* التولز والمهارات */
-.cert-tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 30px;
+.tool-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.tool-tag {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  color: #eee;
-}
+.tool-item img { width: 20px; height: 20px; }
 
-/* المهارات الطائرة */
+/* Flying Bubbles */
 .skill-bubble {
-  position: absolute;
-  z-index: 100;
-  background: var(--violet-m);
-  color: white;
-  padding: 8px 15px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: bold;
-  pointer-events: none;
-  animation: flyOut 1.5s forwards;
+    position: absolute;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #7c3aed, #22d3ee);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 50px;
+    font-weight: 800;
+    pointer-events: none;
+    animation: flyOut 1.5s ease-out forwards;
 }
 
 @keyframes flyOut {
-  0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  100% { opacity: 0; transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.5); }
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(0.6); }
+    100% { opacity: 0; transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.5); }
+}
+/* Interactive Flying Skills (Bubbles) */
+.skill-bubble {
+    position: absolute;
+    z-index: 9999;
+    background: linear-gradient(135deg, var(--primary-glow), var(--accent-cyan));
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: flyOutAnimation 1.5s ease-out forwards;
 }
 
-/* Responsive لضبط الشكل على الموبايل */
-@media (max-width: 900px) {
-  .cert-box { flex-direction: column; }
-  .cert-visual { border-right: none; border-bottom: 1px solid rgba(139, 92, 246, 0.1); }
+@keyframes flyOutAnimation {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.6);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.6);
+    }
 }
 
+/* Verification Action Button */
+.verify-btn {
+    align-self: flex-start;
+    padding: 14px 32px;
+    background: var(--primary-glow);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.verify-btn:hover {
+    background: var(--accent-cyan);
+    color: #0c1234;
+    box-shadow: 0 0 25px rgba(34, 211, 238, 0.5);
+    transform: scale(1.05);
+}
+
+/* Responsive Handling for Tablet/Mobile */
+@media (max-width: 992px) {
+    .cert-box {
+        flex-direction: column;
+    }
+    .cert-visual {
+        border-right: none;
+        border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+    }
+    .cert-name {
+        font-size: 1.8rem;
+    }
+}
 /* ─── أيقونة الماستك (Mascot) الثابتة ─── */
 #mascot-wrap {
   position: fixed; bottom: 30px; right: 22px; z-index: 8888;
@@ -908,40 +951,38 @@ footer{
     </div>
   </div>
 </section>
-
   
-<!-- ══════════════ certificates ══════════════ -->
-<section class="sec" id="certificates" data-idx="5">
+ <!-- ══════════════ certificates ══════════════ -->
+<section class="sec" id="certificates">
   <div class="cert-container">
     
     <div class="cert-box rv">
       <div class="cert-visual" onclick="launchSkills(this)">
-        <img src="CERTIFICATE_LANDING_PAGE~N9BGYZ8IOOP5.jpeg" alt="Google Data Analytics">
-        <div style="position:absolute; bottom:15px; font-size:0.6rem; color:var(--muted);">CLICK IMAGE FOR SKILLS</div>
+        <img src="CERTIFICATE_LANDING_PAGE~N9BGYZ8IOOP5.jpeg" alt="Google Certificate">
+        <p style="margin-top:20px; font-size:0.7rem; color:#94a3b8;">CLICK IMAGE TO EXPLORE SKILLS</p>
       </div>
       
       <div class="cert-info">
-        <div class="cert-tag">Specialization</div>
+        <div style="color:#22d3ee; font-weight:700; font-family:monospace; margin-bottom:10px;">CREDENTIAL COMPLETED: MAY 13, 2026</div>
         <h3 class="cert-name">Google Data Analytics</h3>
-        <p class="cert-description">
-          Mastering the full data analysis process: from data cleaning and SQL analysis to R programming and visualization with Tableau.
+        <p style="color:#94a3b8; line-height:1.7; margin-bottom:30px;">
+          Comprehensive mastery of the data analysis lifecycle, from cleaning and querying with SQL and Python to storytelling via Tableau.
         </p>
         
-        <div class="cert-tools">
-          <span class="tool-tag">SQL</span>
-          <span class="tool-tag">Python</span>
-          <span class="tool-tag">Tableau</span>
-          <span class="tool-tag">R Programming</span>
-          <span class="tool-tag">Spreadsheets</span>
+        <div class="tools-grid">
+          <div class="tool-item"><img src="https://www.svgrepo.com/show/331760/sql-database-generic.svg"><span>SQL</span></div>
+          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"><span>Python</span></div>
+          <div class="tool-item"><img src="https://www.svgrepo.com/show/354432/tableau-icon.svg"><span>Tableau</span></div>
+          <div class="tool-item"><img src="https://www.svgrepo.com/show/354252/r-lang.svg"><span>R</span></div>
         </div>
         
         <button class="btn btn-v" onclick="window.open('https://www.coursera.org/account/accomplishments/specialization/N9BGYZ8IOOP5', '_blank')">
-          Verify Credential
+          VERIFY CREDENTIAL
         </button>
       </div>
     </div>
 
-    </div>
+  </div>
 </section>
 <!-- ══════════════ CONTACT ══════════════ -->
 <section class="sec" id="contact" data-idx="6">
@@ -1200,32 +1241,32 @@ setTimeout(()=>document.querySelectorAll("#hero .rv").forEach((el,i)=>setTimeout
 
 
 function launchSkills(el) {
-  // These are the skill bubbles that will float up
-  const skills = ['SQL 📊', 'Python 🐍', 'Tableau 🎨', 'R Stats 📈', 'Data Cleaning 🧹', 'BigQuery ☁️'];
-  
-  for (let i = 0; i < 10; i++) {
-    setTimeout(() => {
-      const bubble = document.createElement('div');
-      bubble.className = 'skill-bubble';
-      bubble.innerText = skills[Math.floor(Math.random() * skills.length)];
-      
-      // Calculate random flight directions
-      const x = (Math.random() - 0.5) * 400; // Horizontal spread
-      const y = -Math.random() * 300 - 100;  // Vertical lift
-      
-      bubble.style.setProperty('--x', `${x}px`);
-      bubble.style.setProperty('--y', `${y}px`);
-      
-      // Position bubbles relative to the certificate card
-      bubble.style.left = `50%`;
-      bubble.style.top = `40%`;
-      
-      el.appendChild(bubble);
-      
-      // Remove bubble after animation ends
-      setTimeout(() => bubble.remove(), 1500);
-    }, i * 120);
-  }
+    const skills = [
+        { name: 'SQL', icon: 'https://www.svgrepo.com/show/331760/sql-database-generic.svg' },
+        { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+        { name: 'Tableau', icon: 'https://www.svgrepo.com/show/354432/tableau-icon.svg' },
+        { name: 'R Stats', icon: 'https://www.svgrepo.com/show/354252/r-lang.svg' }
+    ];
+
+    for (let i = 0; i < 12; i++) {
+        setTimeout(() => {
+            const skill = skills[Math.floor(Math.random() * skills.length)];
+            const bubble = document.createElement('div');
+            bubble.className = 'skill-bubble';
+            bubble.innerHTML = `<img src="${skill.icon}" style="width:18px; margin-right:8px;"><span>${skill.name}</span>`;
+
+            const x = (Math.random() - 0.5) * 450;
+            const y = -Math.random() * 400 - 100;
+
+            bubble.style.setProperty('--x', `${x}px`);
+            bubble.style.setProperty('--y', `${y}px`);
+            bubble.style.left = `50%`;
+            bubble.style.top = `50%`;
+
+            el.appendChild(bubble);
+            setTimeout(() => bubble.remove(), 1500);
+        }, i * 100);
+    }
 }
 </script>
 </body>
