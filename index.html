@@ -421,6 +421,70 @@ nav{
 .proj-desc{font-size:.78rem;color:var(--muted2);line-height:1.8;margin-block-end:11px;}
 .proj-tags{display:flex;flex-wrap:wrap;gap:4px;}
 .proj-tag{font-size:.62rem;font-weight:700;padding:3px 9px;border-radius:3px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.18);color:#7dd3fc;}
+  /* ─── CERTIFICATES SECTION ─── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.cert-card {
+  background: var(--glass);
+  border: 1px solid var(--gb);
+  backdrop-filter: var(--blur);
+  border-radius: var(--r2);
+  padding: 24px;
+  transition: all .45s var(--smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.cert-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--cyan);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.cert-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.cert-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.skill-with-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.05);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--muted2);
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.skill-with-logo i {
+  font-size: 1.2rem;
+  color: var(--cyan);
+}
+
+.skill-with-logo:hover {
+  border-color: var(--violet-m);
+  color: #fff;
+}
 
 /* ─── CONTACT ─────────────────────────────────────── */
 #contact{justify-content:center;align-items:center;}
@@ -662,7 +726,40 @@ footer{
     </div>
   </div>
 </section>
+<section class="sec" id="certificates">
+  <div class="eyebrow rv">
+    <div class="etag" data-en="Credentials" data-ar="الشهادات">Credentials</div>
+    <div class="eline"></div>
+  </div>
+  <h2 class="stitle rv" data-en="Professional <span class='g'>Certifications</span>" data-ar="الشهادات <span class='g'>المهنية</span>">
+    Professional <span class="g">Certifications</span>
+  </h2>
 
+  <div class="cert-grid rv">
+    <div class="cert-card">
+      <span class="cert-title" data-en="Data Analysis Professional" data-ar="محترف تحليل البيانات">Data Analysis Professional</span>
+      <div class="cert-skills">
+        <div class="skill-with-logo">
+          <i class="devicon-python-plain"></i>
+          <span>Python</span>
+        </div>
+        <div class="skill-with-logo">
+          <i class="devicon-mysql-plain"></i>
+          <span>SQL</span>
+        </div>
+        <div class="skill-with-logo">
+          <i class="devicon-rproject-plain"></i>
+          <span>R</span>
+        </div>
+        <div class="skill-with-logo">
+          <i class="devicon-googlecloud-plain"></i> 
+          <span>Tableau</span>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+</section>
 <!-- ══════════════ PROJECTS ══════════════ -->
 <section class="sec" id="projects" data-idx="4">
   <div style="width:100%;max-width:1300px;margin:0 auto;">
