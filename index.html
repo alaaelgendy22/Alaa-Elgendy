@@ -517,6 +517,72 @@ footer{
   .proj-card.featured{grid-column:span 1;}
   #dots{display:none;}
   .stats-row{gap:20px;}
+
+/* ─── Interactive Certificates CSS (FINAL VERSION) ─── */
+.cert-flex-container {
+  display: flex; gap: 40px; align-items: center; flex-wrap: wrap; margin-top: 40px;
+}
+
+.cert-hero-card {
+  flex: 1; min-width: 300px; position: relative; border-radius: 20px;
+  padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(139,92,246,0.2);
+  cursor: pointer; transition: transform 0.4s;
+  overflow: visible !important; /* مهم جداً عشان المهارات تطير بره حدود الكارت */
+}
+
+.cert-hero-card:hover { transform: scale(1.02); }
+
+.cert-img-container { border-radius: 15px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+.cert-img-container img { width: 100%; display: block; }
+
+.cert-details { flex: 1; min-width: 300px; }
+
+.importance-arrow { 
+  width: 50px; height: 50px; background: var(--violet-m); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 15px;
+  animation: bounce 2s infinite; 
+}
+.importance-arrow svg { fill: white; width: 30px; }
+
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
+
+/* ─── ستايل المهارات اللي بتطير ─── */
+.skill-bubble {
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--violet-m), var(--cyan));
+  color: white;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  animation: flyOut 1.5s ease-out forwards;
+}
+
+@keyframes flyOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    /* بيستخدم القيم العشوائية اللي الجافا سكريبت بيبعتها */
+    transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.5);
+  }
+}
+
+.skill-mini-card {
+  display: inline-block; padding: 6px 15px; background: rgba(34, 211, 238, 0.1);
+  border: 1px solid var(--cyan); border-radius: 8px; font-size: 0.8rem; margin: 5px;
+  color: var(--cyan); font-weight: bold;
+}
+
+.click-hint {
+  text-align: center; font-size: 0.7rem; color: var(--muted); margin-top: 10px; text-transform: uppercase;
+}
 }
 </style>
 </head>
@@ -761,37 +827,52 @@ footer{
   
 <!-- ══════════════ certificates ══════════════ -->
 <section class="sec" id="certificates" data-idx="5">
-  <div style="width:100%; max-width:1300px; margin:0 auto;">
+  <div style="width:100%; max-width:1300px; margin:0 auto; position:relative;">
+    
     <div class="eyebrow rv">
       <span class="etag" data-en="Credentials" data-ar="الشهادات">Credentials</span>
       <span class="eline"></span>
     </div>
-    <h2 class="stitle rv" data-en="Professional <span class='g'>Certifications</span>" data-ar="الشهادات <span class='g'>المهنية</span>">
-      Professional <span class="g">Certifications</span>
+    
+    <h2 class="stitle rv" data-en="Interactive <span class='g'>Certifications</span>" data-ar="الشهادات <span class='g'>التفاعلية</span>">
+      Interactive <span class="g">Certifications</span>
     </h2>
 
-    <div class="proj-grid">
-      <div class="proj-card rv" onclick="window.open('https://www.coursera.org/account/accomplishments/specialization/N9BGYZ8IOOP5', '_blank')" style="cursor: pointer;">
-        <div class="proj-img" style="padding:0; overflow:hidden; background:#000; display:flex; align-items:center; justify-content:center;">
-           <img src="CERTIFICATE_LANDING_PAGE~N9BGYZ8IOOP5.jpeg" alt="Google Data Analytics Certificate" style="width:100%; height:100%; object-fit:contain;">
+    <div class="cert-flex-container">
+      <div class="cert-hero-card rv" onclick="launchSkills(this)">
+        <div class="cert-glow"></div>
+        <div class="cert-img-container">
+          <img src="CERTIFICATE_LANDING_PAGE~N9BGYZ8IOOP5.jpeg" alt="Google Data Analytics Professional Certificate">
         </div>
-        <div class="proj-body">
-          <div class="proj-meta">
-            <span class="proj-yr">2024</span>
-            <span class="proj-badge" data-en="Specialization" data-ar="تخصص">Specialization</span>
-          </div>
-          <div class="proj-title" data-en="Google Data Analytics" data-ar="جوجل لتحليل البيانات">
-            Google Data Analytics
-          </div>
-          <div class="proj-desc" data-en="Comprehensive specialization covering SQL, R programming, Tableau, and the full data analysis process." data-ar="تخصص شامل يغطي SQL، وبرمجة R، وTableau، وعملية تحليل البيانات بالكامل.">
-            Comprehensive specialization covering SQL, R programming, Tableau, and the full data analysis process.
-          </div>
-          <div class="proj-tags">
-            <span class="proj-tag">Google</span>
-            <span class="proj-tag">Coursera</span>
-            <span class="proj-tag">Data Science</span>
-          </div>
+        <div class="click-hint" data-en="Click to reveal skills" data-ar="اضغطي لإظهار المهارات">Click to reveal skills</div>
+      </div>
+
+      <div class="cert-details rv">
+        <div class="importance-arrow">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z" fill="white"/>
+          </svg>
         </div>
+        
+        <h3 class="detail-title" data-en="Why This Matters" data-ar="لماذا هذه الشهادة؟">Why This Matters</h3>
+        
+        <p class="detail-text" 
+           data-en="This specialization validates my proficiency in the entire data analysis process—from asking the right questions to data cleaning, SQL analysis, R programming, and Tableau visualization." 
+           data-ar="تؤكد هذه الشهادة كفاءتي في عملية تحليل البيانات بالكامل؛ بدءاً من طرح الأسئلة الصحيحة، ومروراً بتنظيف البيانات وتحليلها باستخدام SQL، وصولاً للبرمجة بلغة R والتمثيل البصري عبر Tableau.">
+           This specialization validates my proficiency in the entire data analysis process...
+        </p>
+        
+        <div class="skills-learned-grid">
+          <div class="skill-mini-card"><span>SQL</span></div>
+          <div class="skill-mini-card"><span>Python</span></div>
+          <div class="skill-mini-card"><span>R Programming</span></div>
+          <div class="skill-mini-card"><span>Tableau</span></div>
+          <div class="skill-mini-card"><span>Spreadsheets</span></div>
+        </div>
+        
+        <button class="btn btn-v" onclick="window.open('https://www.coursera.org/account/accomplishments/specialization/N9BGYZ8IOOP5', '_blank')" style="margin-top:25px;">
+          <span data-en="Verify Credential" data-ar="تحقق من الشهادة">Verify Credential</span>
+        </button>
       </div>
     </div>
   </div>
@@ -1050,6 +1131,36 @@ document.getElementById("cvBtn").addEventListener("click",e=>{
 
 // Initial hero reveal
 setTimeout(()=>document.querySelectorAll("#hero .rv").forEach((el,i)=>setTimeout(()=>el.classList.add("in"),i*110+200)),200);
+
+
+function launchSkills(el) {
+  // These are the skill bubbles that will float up
+  const skills = ['SQL 📊', 'Python 🐍', 'Tableau 🎨', 'R Stats 📈', 'Data Cleaning 🧹', 'BigQuery ☁️'];
+  
+  for (let i = 0; i < 10; i++) {
+    setTimeout(() => {
+      const bubble = document.createElement('div');
+      bubble.className = 'skill-bubble';
+      bubble.innerText = skills[Math.floor(Math.random() * skills.length)];
+      
+      // Calculate random flight directions
+      const x = (Math.random() - 0.5) * 400; // Horizontal spread
+      const y = -Math.random() * 300 - 100;  // Vertical lift
+      
+      bubble.style.setProperty('--x', `${x}px`);
+      bubble.style.setProperty('--y', `${y}px`);
+      
+      // Position bubbles relative to the certificate card
+      bubble.style.left = `50%`;
+      bubble.style.top = `40%`;
+      
+      el.appendChild(bubble);
+      
+      // Remove bubble after animation ends
+      setTimeout(() => bubble.remove(), 1500);
+    }, i * 120);
+  }
+}
 </script>
 </body>
 </html>
