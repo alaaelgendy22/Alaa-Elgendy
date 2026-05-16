@@ -486,7 +486,32 @@ nav{
   border-color: var(--violet-m);
   color: #fff;
 }
+.cert-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--s2);
+}
 
+.cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: var(--cyan);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.cert-link:hover {
+  color: var(--violet-m);
+  text-shadow: 0 0 10px var(--cyan);
+}
 /* ─── CONTACT ─────────────────────────────────────── */
 #contact{justify-content:center;align-items:center;}
 .contact-inner{text-align:center;max-width:660px;margin:0 auto;width:100%;}
@@ -727,10 +752,43 @@ footer{
     </div>
   </div>
 </section>
+
+  <!-- ══════════════ certificates ══════════════ -->
 <section class="sec" id="certificates">
   <div class="eyebrow rv">
     <div class="etag" data-en="Credentials" data-ar="الشهادات">Credentials</div>
     <div class="eline"></div>
+    <div class="cert-card">
+  <img src="https://about.coursera.org/static/6910a309e37609a473e351842858b431/Google_logo_White.png" alt="Google Certificate" class="cert-img" style="background: #000; padding: 20px; object-fit: contain;">
+
+  <span class="cert-title" data-en="Google Data Analytics Professional Certificate" data-ar="شهادة جوجل الاحترافية في تحليل البيانات">
+    Google Data Analytics Professional Certificate
+  </span>
+  
+  <div class="cert-skills">
+    <div class="skill-with-logo">
+      <i class="devicon-python-plain"></i>
+      <span>Python</span>
+    </div>
+    <div class="skill-with-logo">
+      <i class="devicon-mysql-plain"></i>
+      <span>SQL</span>
+    </div>
+    <div class="skill-with-logo">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#22d3ee" xmlns="http://www.w3.org/2000/svg" style="margin-right: 5px;"><path d="M11 2h2v7h7v2h-7v7h-2v-7H4v-2h7V2z"/></svg>
+      <span>Tableau</span>
+    </div>
+    <div class="skill-with-logo">
+      <i class="devicon-rproject-plain"></i>
+      <span>R Programming</span>
+    </div>
+  </div>
+
+  <a href="https://www.coursera.org/account/accomplishments/professional-cert/N9BGYZ8I0OP5" target="_blank" class="cert-link">
+    <i class="devicon-googlecloud-plain"></i> 
+    <span data-en="Verify Certificate" data-ar="التحقق من الشهادة">Verify Certificate</span>
+  </a>
+</div>
   </div>
   <h2 class="stitle rv" data-en="Professional <span class='g'>Certifications</span>" data-ar="الشهادات <span class='g'>المهنية</span>">
     Professional <span class="g">Certifications</span>
@@ -761,6 +819,7 @@ footer{
     
     </div>
 </section>
+  
 <!-- ══════════════ PROJECTS ══════════════ -->
 <section class="sec" id="projects" data-idx="4">
   <div style="width:100%;max-width:1300px;margin:0 auto;">
