@@ -422,6 +422,50 @@ nav{
 .proj-tags{display:flex;flex-wrap:wrap;gap:4px;}
 .proj-tag{font-size:.62rem;font-weight:700;padding:3px 9px;border-radius:3px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.18);color:#7dd3fc;}
 
+  /* ─── (Certificates) ─── */
+#certificates {
+  --cert-glow: #7c3aed;
+  --cert-cyan: #22d3ee;
+  --cert-emerald: #10b981;
+}
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  width: 100%; max-width: 1300px; margin: 0 auto;
+}
+.cert-card {
+  position: relative; border-radius: 20px; overflow: hidden; cursor: pointer;
+  background: rgba(12, 18, 52, 0.6);
+  border: 1px solid rgba(139, 92, 246, .18);
+  backdrop-filter: blur(24px) saturate(1.4);
+  transition: box-shadow .4s ease, border-color .4s ease;
+}
+.cert-card:hover {
+  border-color: rgba(139, 92, 246, .45);
+  box-shadow: 0 24px 60px rgba(0,0,0,.6), 0 0 60px rgba(109,40,217,.18);
+}
+.cert-img-wrap {
+  position: relative; overflow: hidden; aspect-ratio: 16/9; background: rgba(4, 7, 26, .4);
+}
+.cert-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.22,1,.36,1);
+}
+.cert-card:hover .cert-img-wrap img { transform: scale(1.05); }
+.cert-body { padding: 20px; }
+.cert-issuer { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.cert-issuer-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald); box-shadow: 0 0 8px var(--emerald); }
+.cert-issuer-name { font-family: 'JetBrains Mono', monospace; font-size: .65rem; font-weight: 700; color: var(--emerald); text-transform: uppercase; }
+.cert-title { font-size: 1rem; font-weight: 800; color: #fff; line-height: 1.3; }
+
+/* ─── أيقونة الماستك (Mascot) الثابتة ─── */
+#mascot-wrap {
+  position: fixed; bottom: 30px; right: 22px; z-index: 8888;
+  display: flex; flex-direction: column; align-items: center; pointer-events: none;
+}
+#mascot { width: 68px; height: 88px; pointer-events: all; cursor: pointer; animation: mascotFloat 3.8s ease-in-out infinite; }
+@keyframes mascotFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
 /* ─── CONTACT ─────────────────────────────────────── */
 #contact{justify-content:center;align-items:center;}
 .contact-inner{text-align:center;max-width:660px;margin:0 auto;width:100%;}
@@ -711,7 +755,63 @@ footer{
     </div>
   </div>
 </section>
+<!-- ══════════════ certificates ══════════════ -->
+<section class="sec" id="certificates" data-idx="5">
+  <div style="width:100%; max-width:1300px; margin:0 auto;">
+    <div class="eyebrow rv">
+      <span class="etag" data-en="Credentials" data-ar="الشهادات">Credentials</span>
+      <span class="eline"></span>
+    </div>
+    
+    <h2 class="stitle rv" data-en="Professional <span class='g'>Certifications</span>" data-ar="الشهادات <span class='g'>المهنية</span>">
+      Professional <span class="g">Certifications</span>
+    </h2>
 
+    <div class="proj-grid">
+      
+      <div class="proj-card rv" onclick="window.open('رابط_الشهادة_هنا', '_blank')" style="cursor: pointer;">
+        <div class="proj-img">📜</div> <div class="proj-body">
+          <div class="proj-meta">
+            <span class="proj-yr">2024</span>
+            <span class="proj-badge">Professional</span>
+          </div>
+          <div class="proj-title" data-en="Data Analytics Professional Certificate" data-ar="شهادة احتراف تحليل البيانات">
+            Data Analytics Professional Certificate
+          </div>
+          <div class="proj-desc" data-en="Google Career Certificate covering data cleaning, analysis, and visualization with R and SQL." data-ar="شهادة جوجل المهنية تغطي تنظيف وتحليل البيانات وتصورها باستخدام R و SQL.">
+            Google Career Certificate covering data cleaning, analysis, and visualization with R and SQL.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">Google</span>
+            <span class="proj-tag">Coursera</span>
+            <span class="proj-tag">SQL / R</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card rv" onclick="window.open('رابط_الشهادة_هنا', '_blank')" style="cursor: pointer;">
+        <div class="proj-img">🎓</div>
+        <div class="proj-body">
+          <div class="proj-meta">
+            <span class="proj-yr">2024</span>
+            <span class="proj-badge">AI/ML</span>
+          </div>
+          <div class="proj-title" data-en="Deep Learning Specialization" data-ar="تخصص التعلم العميق">
+            Deep Learning Specialization
+          </div>
+          <div class="proj-desc" data-en="Comprehensive training on Neural Networks, CNNs, and Sequence Models by DeepLearning.AI." data-ar="تدريب شامل على الشبكات العصبية و CNNs ونماذج التسلسل من DeepLearning.AI.">
+            Comprehensive training on Neural Networks, CNNs, and Sequence Models by DeepLearning.AI.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">DeepLearning.AI</span>
+            <span class="proj-tag">Neural Networks</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 <!-- ══════════════ CONTACT ══════════════ -->
 <section class="sec" id="contact" data-idx="5">
   <div class="contact-inner">
