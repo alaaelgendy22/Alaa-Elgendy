@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Alaa Elgendy — Data Analyst & AI Engineer</title>
+<meta name="description" content="Junior Data Analyst & AI Engineer with a Nuclear Engineering background. Specializing in Python, SQL, Deep Learning, and Power BI. Open for new opportunities.">
+<meta name="keywords" content="Data Analyst, AI Engineer, Python, SQL, Power BI, LSTM, Machine Learning, Alexandria Egypt">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
@@ -41,17 +43,17 @@
 /* ─── RESET ──────────────────────────────────── */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 
-/* Custom scrollbar */
+
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:linear-gradient(to bottom,var(--violet-d),var(--cyan-d));border-radius:2px;}
-::-webkit-scrollbar-thumb:hover{background:var(--violet-m);}
-
-/* Selection */
+::-webkit-scrollbar-thumb:hover{background:var(--violet-m);} 
 ::selection{background:rgba(139,92,246,.3);color:#fff;}
+
+
+
 html{height:100%;scroll-snap-type:y mandatory;scroll-behavior:smooth;overflow-y:scroll;overflow-x:hidden;}
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--white);cursor:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.8;}
-
 /* ─── ARABIC ──────────────────────────────────── */
 [lang="ar"]{font-family:'Cairo',sans-serif;}
 [lang="ar"] *{direction:rtl;text-align:right;font-family:'Cairo',sans-serif;}
@@ -78,7 +80,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--white);cur
 body.on-link #cur-dot{width:12px;height:12px;background:var(--violet);box-shadow:0 0 14px var(--violet),0 0 28px rgba(139,92,246,.5);}
 body.on-link #cur-ring{width:52px;height:52px;border-color:var(--violet-m);opacity:.65;}
 
-/* click ripple */
+
 .cripple{
   position:fixed;z-index:99990;border-radius:50%;pointer-events:none;
   transform:translate(-50%,-50%);
@@ -99,16 +101,12 @@ body.on-link #cur-ring{width:52px;height:52px;border-color:var(--violet-m);opaci
   100%{transform:translate(-50%,-50%) translate(var(--tx),var(--ty)) scale(0);opacity:0;}
 }
 
-/* ─── BACKGROUND: INTERACTIVE AURORA ──────────── */
-#aurora-canvas{
-  position:fixed;inset:0;z-index:0;pointer-events:none;
-}
-/* subtle noise texture */
+/* ─── BACKGROUND ──────────────────────────────── */
+#aurora-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
 body::before{
   content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  background-size:200px;
-  opacity:.6;
+  background-size:200px;opacity:.6;
 }
 
 /* ─── NAV ──────────────────────────────────────── */
@@ -128,7 +126,7 @@ nav{
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 .logo em{font-style:normal;-webkit-text-fill-color:var(--violet-m);color:var(--violet-m);}
-.nav-links{display:flex;gap:34px;list-style:none;}
+.nav-links{display:flex;gap:28px;list-style:none;}
 .nav-links a{
   color:var(--muted);text-decoration:none;font-size:.72rem;font-weight:600;
   letter-spacing:.15em;text-transform:uppercase;transition:color .3s var(--smooth);position:relative;
@@ -301,7 +299,7 @@ nav{
 
 /* ─── ABOUT ─────────────────────────────────────── */
 .about-grid{display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:start;width:100%;max-width:1300px;margin:0 auto;}
-.about-hex-wrap{position:relative;width:250px;}
+.about-hex-wrap{position:relative;width:250px;margin-block-end:36px;}
 .about-hex{
   width:250px;height:290px;
   clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
@@ -393,6 +391,94 @@ nav{
 .tl-tags{display:flex;flex-wrap:wrap;gap:5px;}
 .tl-tag{font-size:.62rem;font-weight:600;padding:3px 9px;border-radius:4px;background:rgba(34,211,238,.07);border:1px solid rgba(34,211,238,.18);color:#67e8f9;}
 
+
+/* ─── CERTIFICATES SECTION ─────────────────────── */
+#certificates{align-items:flex-start;}
+.cert-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:22px;
+  width:100%;max-width:1300px;margin:0 auto;
+}
+.cert-card{
+  background:var(--glass);
+  border:1px solid var(--gb);
+  backdrop-filter:var(--blur);
+  border-radius:var(--r2);
+  padding:26px;
+  transition:all .45s var(--smooth);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.cert-card::before{
+  content:'';position:absolute;inset-block-start:0;inset-inline:0;height:2px;
+  background:linear-gradient(90deg,var(--violet-m),var(--cyan));
+  transform:scaleX(0);transform-origin:inline-start;transition:transform .45s var(--ease-out);
+}
+.cert-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(34,211,238,.4);
+  box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 40px rgba(34,211,238,.08);
+}
+.cert-card:hover::before{transform:scaleX(1);}
+.cert-img-wrap{
+  width:100%;height:160px;border-radius:12px;overflow:hidden;
+  margin-block-end:18px;border:1px solid rgba(255,255,255,.08);
+  background:var(--s2);display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.cert-img{
+  width:100%;height:100%;object-fit:cover;border-radius:12px;display:block;
+}
+.cert-img-placeholder{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;width:100%;height:100%;
+  background:linear-gradient(135deg,rgba(109,40,217,.12),rgba(34,211,238,.07));
+}
+.cert-img-placeholder .cert-icon-lg{font-size:2.6rem;opacity:.7;}
+.cert-img-placeholder .cert-issuer{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-block-start:4px;}
+.cert-body{flex:1;display:flex;flex-direction:column;}
+.cert-issuer-row{display:flex;align-items:center;gap:8px;margin-block-end:8px;}
+.cert-issuer-badge{
+  font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--emerald);background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);
+  padding:3px 10px;border-radius:4px;
+}
+.cert-year{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--muted);}
+.cert-title{
+  font-size:.97rem;font-weight:800;color:#fff;
+  margin-block-end:14px;line-height:1.35;display:block;
+}
+.cert-skills{display:flex;flex-wrap:wrap;gap:8px;margin-block-end:18px;}
+.skill-with-logo{
+  display:flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.05);
+  padding:5px 11px;border-radius:8px;
+  font-size:.78rem;color:var(--muted2);
+  border:1px solid transparent;transition:.3s var(--smooth);
+}
+.skill-with-logo i{font-size:1.1rem;color:var(--cyan);}
+.skill-with-logo:hover{border-color:var(--violet-m);color:#fff;background:rgba(139,92,246,.1);}
+.cert-link{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-block-start:auto;color:var(--cyan);text-decoration:none;
+  font-size:.82rem;font-weight:700;transition:.3s var(--smooth);
+  border-top:1px solid rgba(255,255,255,.06);padding-block-start:16px;
+  letter-spacing:.04em;
+}
+.cert-link svg{width:14px;height:14px;flex-shrink:0;}
+.cert-link:hover{color:var(--violet-m);text-shadow:0 0 12px rgba(139,92,246,.4);}
+.cert-link:hover svg{transform:translateX(4px);}
+.cert-link svg{transition:transform .3s var(--spring);}
+/* featured cert card */
+.cert-card.featured-cert{
+  grid-column: span 2;
+  flex-direction:row;gap:28px;align-items:flex-start;
+}
+.cert-card.featured-cert .cert-img-wrap{
+  width:260px;min-width:260px;height:auto;min-height:200px;flex-shrink:0;
+}
+
 /* ─── PROJECTS ───────────────────────────────────── */
 .filter-row{display:flex;gap:10px;margin-block-end:30px;flex-wrap:wrap;}
 .fbtn{
@@ -422,96 +508,7 @@ nav{
 .proj-desc{font-size:.78rem;color:var(--muted2);line-height:1.8;margin-block-end:11px;}
 .proj-tags{display:flex;flex-wrap:wrap;gap:4px;}
 .proj-tag{font-size:.62rem;font-weight:700;padding:3px 9px;border-radius:3px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.18);color:#7dd3fc;}
-  /* ─── CERTIFICATES SECTION ─── */
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-}
 
-.cert-card {
-  background: var(--glass);
-  border: 1px solid var(--gb);
-  backdrop-filter: var(--blur);
-  border-radius: var(--r2);
-  padding: 24px;
-  transition: all .45s var(--smooth);
-  position: relative;
-  overflow: hidden;
-}
-
-.cert-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--cyan);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-.cert-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 15px;
-  display: block;
-}
-
-.cert-skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.skill-with-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,0.05);
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  color: var(--muted2);
-  border: 1px solid transparent;
-  transition: 0.3s;
-}
-
-.skill-with-logo i {
-  font-size: 1.2rem;
-  color: var(--cyan);
-}
-
-.skill-with-logo:hover {
-  border-color: var(--violet-m);
-  color: #fff;
-}
-.cert-img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  border: 1px solid rgba(255,255,255,0.1);
-  background: var(--s2);
-}
-
-.cert-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 20px;
-  color: var(--cyan);
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.cert-link:hover {
-  color: var(--violet-m);
-  text-shadow: 0 0 10px var(--cyan);
-}
 /* ─── CONTACT ─────────────────────────────────────── */
 #contact{justify-content:center;align-items:center;}
 .contact-inner{text-align:center;max-width:660px;margin:0 auto;width:100%;}
@@ -561,8 +558,14 @@ footer{
   .exp-grid{grid-template-columns:1fr;}
   .proj-grid{grid-template-columns:1fr;}
   .proj-card.featured{grid-column:span 1;}
+  .cert-card.featured-cert{grid-column:span 1;flex-direction:column;}
+  .cert-card.featured-cert .cert-img-wrap{width:100%;height:160px;}
   #dots{display:none;}
   .stats-row{gap:20px;}
+  .cert-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .cap-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -580,12 +583,13 @@ footer{
 <nav>
   <div class="logo" onclick="navTo('hero')">Alaa<em>.</em>Elgendy</div>
   <ul class="nav-links">
-    <li><a href="#" data-en="Home"       data-ar="الرئيسية" onclick="navTo('hero');return false">Home</a></li>
-    <li><a href="#" data-en="About"      data-ar="عني"      onclick="navTo('about');return false">About</a></li>
-    <li><a href="#" data-en="Skills"     data-ar="المهارات" onclick="navTo('skills');return false">Skills</a></li>
-    <li><a href="#" data-en="Experience" data-ar="الخبرة"   onclick="navTo('experience');return false">Experience</a></li>
-    <li><a href="#" data-en="Projects"   data-ar="مشاريع"   onclick="navTo('projects');return false">Projects</a></li>
-    <li><a href="#" data-en="Contact"    data-ar="تواصل"    onclick="navTo('contact');return false">Contact</a></li>
+    <li><a href="#" data-en="Home"         data-ar="الرئيسية"  onclick="navTo('hero');return false">Home</a></li>
+    <li><a href="#" data-en="About"        data-ar="عني"       onclick="navTo('about');return false">About</a></li>
+    <li><a href="#" data-en="Skills"       data-ar="المهارات"  onclick="navTo('skills');return false">Skills</a></li>
+    <li><a href="#" data-en="Experience"   data-ar="الخبرة"    onclick="navTo('experience');return false">Experience</a></li>
+    <li><a href="#" data-en="Certificates" data-ar="الشهادات"  onclick="navTo('certificates');return false">Certificates</a></li>
+    <li><a href="#" data-en="Projects"     data-ar="مشاريع"    onclick="navTo('projects');return false">Projects</a></li>
+    <li><a href="#" data-en="Contact"      data-ar="تواصل"     onclick="navTo('contact');return false">Contact</a></li>
   </ul>
   <div class="nav-right">
     <div class="ltoggle">
@@ -620,7 +624,7 @@ footer{
       <div class="hero-ctas rv">
         <a class="btn btn-v" onclick="navTo('projects');return false" href="#" data-en="View Projects" data-ar="عرض المشاريع">View Projects</a>
         <a class="btn btn-c" id="cvBtn" href="#" data-en="Download CV" data-ar="تحميل السيرة">Download CV</a>
-        <a class="btn btn-g" href="https://linkedin.com/in/alaa-ahmed-elgendy" target="_blank">LinkedIn ↗</a>
+        <a class="btn btn-g" href="https://linkedin.com/in/alaa-ahmed-elgendy" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
       <div class="stats-row rv">
         <div><div class="sv">4<em>+</em></div><div class="sl" data-en="Projects" data-ar="مشاريع">Projects</div></div>
@@ -688,8 +692,8 @@ footer{
         <div class="skill-item" data-pct="78"><div class="skill-hdr"><span class="skill-nm">Deep Learning / LSTM Networks</span><span class="skill-pc"></span></div><div class="skill-track"><div class="skill-fill"></div></div></div>
       </div>
       <div class="cap-grid rv">
-        <div class="cap-card"><span class="cap-icon">🐍</span><div class="cap-title">Python & Data Science</div><div class="cap-desc">End-to-end ML pipelines with NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn.</div><div class="ctags"><span class="ctag">EDA</span><span class="ctag">Feature Eng.</span></div></div>
-        <div class="cap-card"><span class="cap-icon">🗄️</span><div class="cap-title">SQL & Databases</div><div class="cap-desc">Complex joins, CTEs, views, and query optimization for logistics analytics.</div><div class="ctags"><span class="ctag">SQL Server</span><span class="ctag">DB Design</span></div></div>
+        <div class="cap-card"><span class="cap-icon">🐍</span><div class="cap-title">Python &amp; Data Science</div><div class="cap-desc">End-to-end ML pipelines with NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn.</div><div class="ctags"><span class="ctag">EDA</span><span class="ctag">Feature Eng.</span></div></div>
+        <div class="cap-card"><span class="cap-icon">🗄️</span><div class="cap-title">SQL &amp; Databases</div><div class="cap-desc">Complex joins, CTEs, views, and query optimization for logistics analytics.</div><div class="ctags"><span class="ctag">SQL Server</span><span class="ctag">DB Design</span></div></div>
         <div class="cap-card"><span class="cap-icon">📊</span><div class="cap-title">Power BI</div><div class="cap-desc">Interactive KPI dashboards, DAX measures, data modeling, Power Query.</div><div class="ctags"><span class="ctag">DAX</span><span class="ctag">Reports</span></div></div>
         <div class="cap-card"><span class="cap-icon">⚛️</span><div class="cap-title">Deep Learning</div><div class="cap-desc">LSTM for time-series, KNN/SVM/NN classification, MATLAB reactor simulations.</div><div class="ctags"><span class="ctag">LSTM</span><span class="ctag">TensorFlow</span></div></div>
       </div>
@@ -709,7 +713,7 @@ footer{
           <div class="tl-item" onclick="this.classList.toggle('open')">
             <div class="tl-dot"></div>
             <div class="tl-date">Nov 2024 — Present</div>
-            <div class="tl-role" data-en="Junior Data Analyst & AI Engineer" data-ar="محللة بيانات مبتدئة ومهندسة ذكاء اصطناعي">Junior Data Analyst & AI Engineer</div>
+            <div class="tl-role" data-en="Junior Data Analyst & AI Engineer" data-ar="محللة بيانات مبتدئة ومهندسة ذكاء اصطناعي">Junior Data Analyst &amp; AI Engineer</div>
             <div class="tl-company">Digilians – MCIT (Ministry of Communications)</div>
             <div class="tl-expand">
               <div class="tl-desc" data-en="Data cleaning, analysis, and reporting with Python (Pandas), SQL, and Power BI. Contributed to ML classification/prediction projects, built interactive dashboards, and presented data-driven insights to stakeholders." data-ar="تنظيف البيانات وتحليلها وإعداد التقارير باستخدام Python و SQL و Power BI. المساهمة في مشاريع التعلم الآلي وبناء لوحات تفاعلية وتقديم الرؤى للمعنيين.">
@@ -721,13 +725,13 @@ footer{
         </div>
       </div>
       <div class="rv">
-        <p class="exp-col-lbl" data-en="Education & Training" data-ar="التعليم والتدريب">Education & Training</p>
+        <p class="exp-col-lbl" data-en="Education &amp; Training" data-ar="التعليم والتدريب">Education &amp; Training</p>
         <div class="timeline">
           <div class="tl-item" onclick="this.classList.toggle('open')">
             <div class="tl-dot"></div>
             <div class="tl-date">July 2023</div>
-            <div class="tl-role" data-en="ETRR-2 Reactor & ENRRA Training" data-ar="تدريب مفاعل إتر-2 وهيئة الرقابة النووية">ETRR-2 Reactor & ENRRA Training</div>
-            <div class="tl-company">Egyptian Nuclear & Radiological Regulatory Authority</div>
+            <div class="tl-role" data-en="ETRR-2 Reactor & ENRRA Training" data-ar="تدريب مفاعل إتر-2 وهيئة الرقابة النووية">ETRR-2 Reactor &amp; ENRRA Training</div>
+            <div class="tl-company">Egyptian Nuclear &amp; Radiological Regulatory Authority</div>
             <div class="tl-expand">
               <div class="tl-desc" data-en="Reactor core observation, safety protocols, radiation detection labs, and hands-on sample handling." data-ar="مراقبة قلب المفاعل، بروتوكولات الأمان، مختبرات الكشف الإشعاعي والتعامل العملي مع العينات.">
                 Reactor core observation, safety protocols, radiation detection labs, and hands-on sample handling.
@@ -753,83 +757,151 @@ footer{
   </div>
 </section>
 
-  <!-- ══════════════ certificates ══════════════ -->
-<section class="sec" id="certificates">
-  <div class="eyebrow rv">
-    <div class="etag" data-en="Credentials" data-ar="الشهادات">Credentials</div>
-    <div class="eline"></div>
-    <div class="cert-card">
-  <img src="https://about.coursera.org/static/6910a309e37609a473e351842858b431/Google_logo_White.png" alt="Google Certificate" class="cert-img" style="background: #000; padding: 20px; object-fit: contain;">
+<!-- ══════════════ CERTIFICATES ══════════════ -->
+<section class="sec" id="certificates" data-idx="4">
+  <div style="width:100%;max-width:1300px;margin:0 auto;">
+    <div class="eyebrow rv"><span class="etag" data-en="Credentials" data-ar="الشهادات">Credentials</span><span class="eline"></span></div>
+    <h2 class="stitle rv" data-en="Professional <span class='g'>Certifications</span>" data-ar="الشهادات <span class='g'>المهنية</span>">
+      Professional <span class="g">Certifications</span>
+    </h2>
+    <div class="cert-grid rv">
 
-  <span class="cert-title" data-en="Google Data Analytics Professional Certificate" data-ar="شهادة جوجل الاحترافية في تحليل البيانات">
-    Google Data Analytics Professional Certificate
-  </span>
-  
-  <div class="cert-skills">
-    <div class="skill-with-logo">
-      <i class="devicon-python-plain"></i>
-      <span>Python</span>
-    </div>
-    <div class="skill-with-logo">
-      <i class="devicon-mysql-plain"></i>
-      <span>SQL</span>
-    </div>
-    <div class="skill-with-logo">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#22d3ee" xmlns="http://www.w3.org/2000/svg" style="margin-right: 5px;"><path d="M11 2h2v7h7v2h-7v7h-2v-7H4v-2h7V2z"/></svg>
-      <span>Tableau</span>
-    </div>
-    <div class="skill-with-logo">
-      <i class="devicon-rproject-plain"></i>
-      <span>R Programming</span>
-    </div>
-  </div>
-
-  <a href="https://www.coursera.org/account/accomplishments/professional-cert/N9BGYZ8I0OP5" target="_blank" class="cert-link">
-    <i class="devicon-googlecloud-plain"></i> 
-    <span data-en="Verify Certificate" data-ar="التحقق من الشهادة">Verify Certificate</span>
-  </a>
-</div>
-  </div>
-  <h2 class="stitle rv" data-en="Professional <span class='g'>Certifications</span>" data-ar="الشهادات <span class='g'>المهنية</span>">
-    Professional <span class="g">Certifications</span>
-  </h2>
-
-  <div class="cert-grid rv">
-    <div class="cert-card">
-      <span class="cert-title" data-en="Data Analysis Professional" data-ar="محترف تحليل البيانات">Data Analysis Professional</span>
-      <div class="cert-skills">
-        <div class="skill-with-logo">
-          <i class="devicon-python-plain"></i>
-          <span>Python</span>
+      
+  <!-- Google Data Analytics — featured card with real cert image -->
+      <div class="cert-card featured-cert">
+        <div class="cert-img-wrap">
+          <img src="CERTIFICATE_LANDING_PAGE~N9BGYZ8IOOP5.jpeg" alt="Google Data Analytics Professional Certificate" class="cert-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="cert-img-placeholder" style="display:none;">
+            <span class="cert-icon-lg">📜</span>
+            <span class="cert-issuer">Google / Coursera</span>
+          </div>
         </div>
-        <div class="skill-with-logo">
-          <i class="devicon-mysql-plain"></i>
-          <span>SQL</span>
-        </div>
-        <div class="skill-with-logo">
-          <i class="devicon-rproject-plain"></i>
-          <span>R</span>
-        </div>
-        <div class="skill-with-logo">
-          <i class="devicon-googlecloud-plain"></i> 
-          <span>Tableau</span>
+        <div class="cert-body">
+          <div class="cert-issuer-row">
+            <span class="cert-issuer-badge">Google</span>
+            <span class="cert-year">2024</span>
+          </div>
+          <span class="cert-title" data-en="Google Data Analytics Professional Certificate" data-ar="شهادة جوجل الاحترافية في تحليل البيانات">
+            Google Data Analytics Professional Certificate
+          </span>
+          <div class="cert-skills">
+            <div class="skill-with-logo">
+              <i class="devicon-python-plain"></i>
+              <span>Python</span>
+            </div>
+            <div class="skill-with-logo">
+              <i class="devicon-mysql-plain"></i>
+              <span>SQL</span>
+            </div>
+            <div class="skill-with-logo">
+              <i class="devicon-rproject-plain"></i>
+              <span>R Programming</span>
+            </div>
+            <div class="skill-with-logo">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color:var(--cyan)"><path d="M11.654 1.374L1.22 5.958v12.084l10.434 4.584 10.434-4.584V5.958L11.654 1.374zm0 1.562l8.653 3.8L11.654 10.54 3 6.736l8.654-3.8zM2.22 7.566l8.934 3.926v10.17L2.22 17.73V7.566zm10.434 14.096V11.492l8.934-3.926V17.73l-8.934 3.932z"/></svg>
+              <span>Tableau</span>
+            </div>
+            <div class="skill-with-logo">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color:#22d3ee"><path d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z"/></svg>
+              <span>Spreadsheets</span>
+            </div>
+          </div>
+          <a href="https://www.coursera.org/account/accomplishments/professional-cert/N9BGYZ8I0OP5" target="_blank" rel="noopener" class="cert-link" data-en="Verify on Coursera ↗" data-ar="تحقق عبر كورسيرا ↗">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Verify on Coursera ↗
+          </a>
         </div>
       </div>
+      
+
+   <!-- Data Analysis Professional Diploma -->
+      <div class="cert-card">
+        <div class="cert-img-wrap">
+          <div class="cert-img-placeholder">
+            <span class="cert-icon-lg">🎓</span>
+            <span class="cert-issuer">Professional Diploma</span>
+          </div>
+        </div>
+        
+       <div class="cert-body">
+          <div class="cert-issuer-row">
+            <span class="cert-issuer-badge">Diploma</span>
+            <span class="cert-year">2023</span>
+          </div>
+          <span class="cert-title" data-en="Data Analysis Professional Diploma" data-ar="دبلومة محترف تحليل البيانات">
+            Data Analysis Professional Diploma
+          </span>
+          <div class="cert-skills">
+            <div class="skill-with-logo">
+              <i class="devicon-python-plain"></i>
+              <span>Python</span>
+            </div>
+            <div class="skill-with-logo">
+              <i class="devicon-mysql-plain"></i>
+              <span>SQL</span>
+            </div>
+            <div class="skill-with-logo">
+              <i class="devicon-rproject-plain"></i>
+              <span>R</span>
+            </div>
+            <div class="skill-with-logo">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color:#f59e0b"><path d="M3 3h18v18H3V3zm16 16V5H5v14h14z"/></svg>
+              <span>Tableau</span>
+            </div>
+          </div>
+        </div>
+
+        
+        </div>
+      <!-- Python for Data Science -->
+      <div class="cert-card">
+        <div class="cert-img-wrap">
+          <div class="cert-img-placeholder">
+            <span class="cert-icon-lg">🐍</span>
+            <span class="cert-issuer">Python / ML</span>
+          </div>
+        </div>
+        
+        <div class="cert-body">
+          <div class="cert-issuer-row">
+            <span class="cert-issuer-badge">AI &amp; ML</span>
+            <span class="cert-year">2023</span>
+          </div>
+          <span class="cert-title" data-en="Python for Data Science & Machine Learning" data-ar="Python للعلوم والتعلم الآلي">
+            Python for Data Science &amp; Machine Learning
+          </span>
+          <div class="cert-skills">
+            <div class="skill-with-logo">
+              <i class="devicon-python-plain"></i>
+              <span>Python</span>
+            </div>
+            <div class="skill-with-logo">
+              <i class="devicon-tensorflow-original"></i>
+              <span>TensorFlow</span>
+            </div>
+            <div class="skill-with-logo">
+              <i class="devicon-scikitlearn-plain"></i>
+              <span>Scikit-learn</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
-    
-    </div>
+   </div>
 </section>
   
 <!-- ══════════════ PROJECTS ══════════════ -->
-<section class="sec" id="projects" data-idx="4">
+<section class="sec" id="projects" data-idx="5">
   <div style="width:100%;max-width:1300px;margin:0 auto;">
     <div class="eyebrow rv"><span class="etag" data-en="Portfolio" data-ar="المشاريع">Portfolio</span><span class="eline"></span></div>
     <h2 class="stitle rv" data-en="Data &amp; AI <span class='g'>Projects</span>" data-ar="مشاريع البيانات <span class='g'>والذكاء</span>">Data &amp; AI <span class="g">Projects</span></h2>
     <div class="filter-row rv">
-      <button class="fbtn active" data-filter="all" data-en="All" data-ar="الكل" onclick="filter(this)">All</button>
-      <button class="fbtn" data-filter="ai"      data-en="AI & ML"  data-ar="ذكاء اصطناعي" onclick="filter(this)">AI & ML</button>
-      <button class="fbtn" data-filter="nuclear" data-en="Nuclear"  data-ar="نووي"          onclick="filter(this)">Nuclear</button>
-      <button class="fbtn" data-filter="data"    data-en="Data / BI" data-ar="بيانات"       onclick="filter(this)">Data / BI</button>
+      <button class="fbtn active" data-filter="all"    data-en="All"       data-ar="الكل"          onclick="filter(this)">All</button>
+      <button class="fbtn" data-filter="ai"            data-en="AI & ML"   data-ar="ذكاء اصطناعي"  onclick="filter(this)">AI &amp; ML</button>
+      <button class="fbtn" data-filter="nuclear"       data-en="Nuclear"   data-ar="نووي"           onclick="filter(this)">Nuclear</button>
+      <button class="fbtn" data-filter="data"          data-en="Data / BI" data-ar="بيانات"         onclick="filter(this)">Data / BI</button>
     </div>
     <div class="proj-grid">
       <div class="proj-card featured rv" data-cat="nuclear ai">
@@ -847,7 +919,7 @@ footer{
         <div class="proj-img">💪📈</div>
         <div class="proj-body">
           <div class="proj-meta"><span class="proj-yr">2024</span><span class="proj-badge">ML</span></div>
-          <div class="proj-title" data-en="Body Performance Analytics & ML" data-ar="تحليلات الأداء الجسدي والتعلم الآلي">Body Performance Analytics & ML</div>
+          <div class="proj-title" data-en="Body Performance Analytics & ML" data-ar="تحليلات الأداء الجسدي والتعلم الآلي">Body Performance Analytics &amp; ML</div>
           <div class="proj-desc" data-en="13k+ records, IQR capping, full EDA, KNN/SVM/Decision Tree/NN — 75% accuracy, R²~0.80." data-ar="13,000+ سجل، EDA شامل، KNN/SVM — دقة 75%.">
             13k+ records, IQR capping, full EDA, KNN/SVM/Decision Tree/NN — 75% accuracy, R²~0.80.
           </div>
@@ -870,7 +942,7 @@ footer{
 </section>
 
 <!-- ══════════════ CONTACT ══════════════ -->
-<section class="sec" id="contact" data-idx="5">
+<section class="sec" id="contact" data-idx="6">
   <div class="contact-inner">
     <div class="eyebrow rv" style="justify-content:center;"><span class="etag" data-en="Get In Touch" data-ar="تواصلي معي">Get In Touch</span></div>
     <h2 class="stitle rv" data-en="Let's <span class='g'>Connect</span>" data-ar="<span class='g'>لنتواصل</span>">Let's <span class="g">Connect</span></h2>
@@ -882,7 +954,7 @@ footer{
         <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         alaa.a.elgendy22@gmail.com
       </a>
-      <a href="https://linkedin.com/in/alaa-ahmed-elgendy" target="_blank" class="contact-card">
+      <a href="https://linkedin.com/in/alaa-ahmed-elgendy" target="_blank" rel="noopener" class="contact-card">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
