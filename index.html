@@ -1960,8 +1960,12 @@ footer{
   .hero-terminal-tag,#ai-chat-btn,#ai-chat-panel,.cmd-palette-trigger{display:none !important;}
   #mascot{display:block!important;width:132px;height:132px;bottom:24px;left:24px;filter:drop-shadow(0 18px 22px rgba(0,0,0,.34)) drop-shadow(0 0 14px rgba(216,173,87,.2));}
   #mascot svg,#mascot .mascot-orbit{display:none!important;}
-  #mascot .mascot-cat-pose{display:block;width:100%;height:100%;object-fit:contain;position:absolute;inset:0;z-index:2;transition:opacity .16s ease,transform .25s ease!important;}
-  #mascot.pose-swap .mascot-cat-pose{opacity:.2;transform:scale(.9) rotate(-3deg);}
+  #mascot .mascot-cat-stage{display:block;position:absolute;inset:0;z-index:2;transform:translate(var(--cat-look-x,0),var(--cat-look-y,0)) rotate(var(--cat-look-r,0deg));transition:transform .28s ease-out!important;}
+  #mascot .mascot-cat-pose{display:block;width:100%;height:100%;object-fit:contain;position:absolute;inset:0;transition:opacity .48s cubic-bezier(.22,1,.36,1),transform .48s cubic-bezier(.22,1,.36,1),filter .48s ease!important;}
+  #mascot #mascotPose{z-index:2;opacity:1;transform:translateY(0) scale(1) rotate(0);}
+  #mascot #mascotPoseNext{z-index:3;opacity:0;transform:translateY(7px) scale(.94) rotate(2deg);filter:blur(1px);}
+  #mascot.pose-transition #mascotPose{opacity:0;transform:translateY(-5px) scale(.94) rotate(-2deg);filter:blur(1px);}
+  #mascot.pose-transition #mascotPoseNext{opacity:1;transform:translateY(0) scale(1) rotate(0);filter:blur(0);}
   #thought{display:block!important;left:24px;bottom:148px;border-color:rgba(216,173,87,.35);background:rgba(7,21,45,.94);max-width:250px;}
   .hex-flip-inner{transform:none!important;}
   .hex-face-front{transform:none!important;backface-visibility:visible!important;}
@@ -2015,7 +2019,7 @@ footer{
 <div id="cur-ring"></div>
 
 <!-- MASCOT -->
-<div id="mascot" title="Click to interact with the portfolio guide">
+<div id="mascot" role="button" tabindex="0" aria-label="Interactive Egyptian-inspired cat portfolio guide" title="Click to interact with the portfolio guide">
   <div class="mascot-orbit">
     <div class="orbit-ring">
       <div class="electron"></div>
@@ -2094,7 +2098,10 @@ footer{
     <line x1="45" y1="11" x2="45" y2="2" stroke="rgba(139,92,246,.8)" stroke-width="2" stroke-linecap="round"/>
     <circle cx="45" cy="2" r="3" fill="var(--violet-m)" filter="url(#bayGlow)"/>
   </svg>
-  <img id="mascotPose" class="mascot-cat-pose" src="cat-pose-1.webp" alt="Interactive Egyptian-inspired cat portfolio guide" width="220" height="220" decoding="async">
+  <span class="mascot-cat-stage" id="mascotCatStage" aria-hidden="true">
+    <img id="mascotPose" class="mascot-cat-pose" src="cat-pose-1.webp" alt="" width="220" height="220" decoding="async">
+    <img id="mascotPoseNext" class="mascot-cat-pose" src="cat-pose-1.webp" alt="" width="220" height="220" decoding="async">
+  </span>
 </div>
 <div id="thought"><span id="thought-text"></span><div class="thought-tail"></div></div>
 
@@ -3981,18 +3988,44 @@ function filter(btn){
 
   const poseFiles = ['cat-pose-1.webp','cat-pose-2.webp','cat-pose-3.webp','cat-pose-4.webp','cat-pose-5.webp'];
   const poseEl = document.getElementById('mascotPose');
+  const nextPoseEl = document.getElementById('mascotPoseNext');
   const mascotEl = document.getElementById('mascot');
+  const catStage = document.getElementById('mascotCatStage');
   let poseIndex = 0;
+  let poseBusy = false;
   poseFiles.forEach(src=>{ const img=new Image(); img.src=src; });
 
   function nextPose(){
-    if(!poseEl || !mascotEl) return;
+    if(!poseEl || !nextPoseEl || !mascotEl || poseBusy) return;
+    poseBusy=true;
     poseIndex=(poseIndex+1)%poseFiles.length;
-    mascotEl.classList.add('pose-swap');
-    setTimeout(()=>{
-      poseEl.src=poseFiles[poseIndex];
-      requestAnimationFrame(()=>mascotEl.classList.remove('pose-swap'));
-    },120);
+    const target=poseFiles[poseIndex];
+    nextPoseEl.src=target;
+    const ready=nextPoseEl.decode ? nextPoseEl.decode().catch(()=>{}) : Promise.resolve();
+    ready.then(()=>{
+      mascotEl.classList.add('pose-transition');
+      setTimeout(()=>{
+        poseEl.src=target;
+        mascotEl.classList.remove('pose-transition');
+        poseBusy=false;
+      },500);
+    });
+  }
+
+  if(catStage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    let lookFrame=0;
+    window.addEventListener('pointermove',e=>{
+      if(lookFrame) return;
+      lookFrame=requestAnimationFrame(()=>{
+        const r=mascotEl.getBoundingClientRect();
+        const dx=Math.max(-1,Math.min(1,(e.clientX-(r.left+r.width/2))/(window.innerWidth*.55)));
+        const dy=Math.max(-1,Math.min(1,(e.clientY-(r.top+r.height/2))/(window.innerHeight*.55)));
+        catStage.style.setProperty('--cat-look-x',(dx*4).toFixed(1)+'px');
+        catStage.style.setProperty('--cat-look-y',(dy*2.5).toFixed(1)+'px');
+        catStage.style.setProperty('--cat-look-r',(dx*2.2).toFixed(1)+'deg');
+        lookFrame=0;
+      });
+    },{passive:true});
   }
 
   let lastMsg = '';
@@ -4071,10 +4104,13 @@ function filter(btn){
   document.getElementById('mascot').addEventListener('click', ()=>{
     speak(pickFrom(reactions.general));
   });
+  document.getElementById('mascot').addEventListener('keydown', e=>{
+    if(e.key==='Enter' || e.key===' '){
+      e.preventDefault();
+      speak(pickFrom(reactions.general));
+    }
+  });
 
-  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    setInterval(nextPose,2800);
-  }
 })();
 
 
