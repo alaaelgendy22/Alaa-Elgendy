@@ -1953,6 +1953,51 @@ footer{
   footer{flex-direction:column;gap:4px;text-align:center;padding:14px 16px;}
 }
 </style>
+<style id="professional-egyptian-refresh">
+  :root{--egypt-gold:#d8ad57;--egypt-gold-soft:rgba(216,173,87,.14);--egypt-navy:#07152d;}
+  body{cursor:auto;}
+  #mascot,#thought,#hero-rain-canvas,.hero-scan-beam,.scan,#trail-canvas,#cur-dot,#cur-ring,#dots,#scroll-progress,.cripple,.cburst,
+  .hero-terminal-tag,.hero-dash-frame,#ai-chat-btn,#ai-chat-panel,.cmd-palette-trigger{display:none !important;}
+  #aurora-canvas{opacity:.32;}
+  #hero{background:radial-gradient(circle at 82% 42%,rgba(216,173,87,.12),transparent 27%),radial-gradient(circle at 18% 32%,rgba(34,211,238,.08),transparent 34%);}
+  #hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;background-image:linear-gradient(90deg,transparent 0 49.8%,rgba(216,173,87,.08) 50%,transparent 50.2%);background-size:76px 100%;mask-image:linear-gradient(to bottom,transparent,black 24%,black 76%,transparent);}
+  .hero-layout{grid-template-columns:minmax(0,1fr) minmax(340px,480px);gap:72px;}
+  .hero-name{letter-spacing:-.055em;}
+  .hero-glitch::before,.hero-glitch::after{display:none !important;}
+  .hero-name .nl2{background:linear-gradient(120deg,#f6f1e5 5%,var(--egypt-gold) 72%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .logo em{color:var(--egypt-gold);}
+  .typing-row{margin-top:18px;}
+  .hero-cat-showcase{min-height:560px;position:relative;display:flex;align-items:center;justify-content:center;isolation:isolate;perspective:1000px;}
+  .hero-cat-showcase::before{content:"";position:absolute;width:370px;height:370px;border:1px solid rgba(216,173,87,.22);border-radius:50%;background:radial-gradient(circle,rgba(216,173,87,.09),transparent 67%);box-shadow:0 0 90px rgba(216,173,87,.07);z-index:-1;}
+  .hero-cat-showcase::after{content:"";position:absolute;inset:12% 5%;border-top:1px solid rgba(216,173,87,.2);border-bottom:1px solid rgba(216,173,87,.12);z-index:-1;}
+  .hero-cat-interactive{width:min(100%,480px);position:relative;cursor:pointer;transform-style:preserve-3d;transform:translateY(var(--cat-scroll,0px)) rotateX(var(--cat-rx,0deg)) rotateY(var(--cat-ry,0deg));transition:transform .22s ease-out,filter .3s ease !important;filter:drop-shadow(0 32px 38px rgba(0,0,0,.34));}
+  .hero-cat-interactive:hover{filter:drop-shadow(0 34px 42px rgba(0,0,0,.38)) drop-shadow(0 0 22px rgba(216,173,87,.12));}
+  .hero-cat-img{display:block;width:100%;height:auto;transform-origin:52% 82%;animation:catFloat 4.8s ease-in-out infinite;user-select:none;-webkit-user-drag:none;}
+  .hero-cat-interactive.is-curious .hero-cat-img{animation:catReact .75s cubic-bezier(.2,.9,.2,1);}
+  @keyframes catFloat{0%,100%{transform:translateY(0) rotate(-.4deg)}50%{transform:translateY(-12px) rotate(.8deg)}}
+  @keyframes catReact{0%,100%{transform:translateY(0) scale(1)}35%{transform:translateY(-22px) rotate(-2deg) scale(1.025)}65%{transform:translateY(-6px) rotate(1.2deg) scale(.995)}}
+  .cat-caption{position:absolute;right:0;bottom:48px;max-width:230px;padding:13px 16px;border:1px solid rgba(216,173,87,.28);border-radius:14px;background:rgba(7,21,45,.82);backdrop-filter:blur(16px);box-shadow:0 16px 38px rgba(0,0,0,.22);}
+  .cat-caption strong{display:block;color:#f3d9a2;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;}
+  .cat-caption span{color:var(--muted2);font-size:.72rem;line-height:1.55;}
+  #skills .skills-layout,#skills .radar-wrap{display:none !important;}
+  .skill-proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:34px;}
+  .skill-proof-card{padding:26px;border:1px solid rgba(148,163,184,.14);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018));box-shadow:0 16px 44px rgba(0,0,0,.14);transition:transform .25s ease,border-color .25s ease,background .25s ease;}
+  .skill-proof-card:hover{transform:translateY(-4px);border-color:rgba(216,173,87,.34);background:linear-gradient(145deg,rgba(216,173,87,.07),rgba(255,255,255,.02));}
+  .skill-kicker{color:var(--egypt-gold);font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;}
+  .skill-proof-card h3{font-size:1.06rem;margin:10px 0 9px;color:var(--text);}
+  .skill-proof-card p{font-size:.77rem;line-height:1.7;color:var(--muted2);margin:0 0 17px;}
+  .skill-tools{display:flex;flex-wrap:wrap;gap:7px;}
+  .skill-tools span{font-size:.65rem;color:#cbd5e1;border:1px solid rgba(148,163,184,.16);background:rgba(15,23,42,.38);padding:6px 9px;border-radius:999px;}
+  .skill-evidence{margin-top:17px;padding-top:14px;border-top:1px solid rgba(148,163,184,.1);font-size:.67rem;color:#94a3b8;line-height:1.5;}
+  .skill-evidence b{color:#d8ad57;font-weight:700;}
+  [data-theme="light"] .cat-caption{background:rgba(255,255,255,.9);}
+  [data-theme="light"] .cat-caption span{color:#475569;}
+  [data-theme="light"] .skill-proof-card{background:#fff;border-color:rgba(15,23,42,.1);box-shadow:0 14px 32px rgba(15,23,42,.06);}
+  [data-theme="light"] .skill-tools span{color:#334155;background:#f8fafc;border-color:#e2e8f0;}
+  @media(max-width:900px){.hero-layout{grid-template-columns:1fr;gap:18px;}.hero-cat-showcase{min-height:440px;margin-top:4px;}.hero-cat-interactive{width:min(92%,420px);}.cat-caption{right:4%;bottom:22px;}.skill-proof-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media(max-width:600px){.hero-cat-showcase{min-height:360px;}.hero-cat-interactive{width:min(94%,340px);}.hero-cat-showcase::before{width:270px;height:270px;}.cat-caption{right:0;bottom:0;max-width:190px;padding:10px 12px;}.cat-caption span{font-size:.64rem;}.skill-proof-grid{grid-template-columns:1fr;gap:13px;}.skill-proof-card{padding:21px;}}
+  @media(prefers-reduced-motion:reduce){.hero-cat-img{animation:none;}.hero-cat-interactive{transition:none;}}
+</style>
 </head>
 <body>
 
@@ -2123,14 +2168,25 @@ footer{
         <a class="btn btn-g" href="https://github.com/alaaelgendy22" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
       <div class="stats-row rv">
-        <div><div class="sv" data-count="7" data-suffix="+">7<em>+</em></div><div class="sl" data-en="Projects" data-ar="مشاريع">Projects</div></div>
-        <div><div class="sv" data-count="2024" data-suffix="">2024</div><div class="sl" data-en="Graduation" data-ar="التخرج">Graduation</div></div>
-        <div><div class="sv" data-count="8" data-suffix="+">8<em>+</em></div><div class="sl" data-en="Tech Tools" data-ar="أدوات تقنية">Tech Tools</div></div>
-        <div><div class="sv" data-count="3" data-suffix="+">3<em>+</em></div><div class="sl" data-en="Years Experience" data-ar="سنوات خبرة">Years Experience</div></div>
+        <div><div class="sv">7<em>+</em></div><div class="sl" data-en="Projects" data-ar="مشاريع">Projects</div></div>
+        <div><div class="sv">2024</div><div class="sl" data-en="Graduation" data-ar="التخرج">Graduation</div></div>
+        <div><div class="sv">8<em>+</em></div><div class="sl" data-en="Tech Tools" data-ar="أدوات تقنية">Tech Tools</div></div>
+        <div><div class="sv">3</div><div class="sl" data-en="Featured AI Systems" data-ar="أنظمة ذكاء اصطناعي مميزة">Featured AI Systems</div></div>
       </div>
     </div>
 
-    <!-- RIGHT: holographic dashboard frame around hex photo -->
+    <!-- RIGHT: subtle interactive Egyptian mascot -->
+    <div class="hero-cat-showcase rv" aria-label="Interactive Egyptian cat mascot">
+      <div class="hero-cat-interactive" id="egyptCat" role="button" tabindex="0" aria-label="Interactive Egyptian cat mascot. Move the pointer or press Enter to interact.">
+        <img class="hero-cat-img" src="egyptian-cat-mascot.webp" alt="Navy and gold Egyptian-inspired cat holding a telescope" fetchpriority="high" decoding="async">
+      </div>
+      <div class="cat-caption">
+        <strong>Egyptian roots</strong>
+        <span>Curiosity, precision, and evidence-led AI.</span>
+      </div>
+    </div>
+
+    <!-- Legacy hero visual retained in source but hidden by the professional refresh -->
     <div class="hero-dash-frame rv" style="position:relative;z-index:3;">
       <!-- corner brackets -->
       <div class="hdf-corner hdf-tl"></div>
@@ -2217,54 +2273,57 @@ footer{
   <div style="width:100%;max-width:1300px;margin:0 auto;">
     <div class="eyebrow rv"><span class="etag" data-en="Expertise" data-ar="الخبرات">Expertise</span><span class="eline"></span></div>
     <h2 class="stitle rv" data-en="Technical <span class='g'>Capabilities</span>" data-ar="القدرات <span class='g'>التقنية</span>">Technical <span class="g">Capabilities</span></h2>
-    <div class="skills-layout" style="grid-template-columns:1fr;">
-      <div class="cap-grid rv">
-        <div class="tilt-wrap"><div class="cap-card">
-          <div class="tilt-glare"></div>
-          <div class="cap-card-img">
-            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&q=80&auto=format&fit=crop" alt="Python Data Science" loading="lazy">
-          </div>
-          <span class="cap-icon">🐍</span><div class="cap-title">Python &amp; Data Science</div><div class="cap-desc">End-to-end ML pipelines with NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn.</div><div class="ctags"><span class="ctag">EDA</span><span class="ctag">Feature Eng.</span></div></div></div>
-        <div class="tilt-wrap"><div class="cap-card">
-          <div class="tilt-glare"></div>
-          <div class="cap-card-img">
-            <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&q=80&auto=format&fit=crop" alt="SQL Databases" loading="lazy">
-          </div>
-          <span class="cap-icon">🗄️</span><div class="cap-title">SQL &amp; Databases</div><div class="cap-desc">Complex joins, CTEs, views, and query optimization for logistics analytics.</div><div class="ctags"><span class="ctag">SQL Server</span><span class="ctag">DB Design</span></div></div></div>
-        <div class="tilt-wrap"><div class="cap-card">
-          <div class="tilt-glare"></div>
-          <div class="cap-card-img">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80&auto=format&fit=crop" alt="Power BI Dashboard" loading="lazy">
-          </div>
-          <span class="cap-icon">📊</span><div class="cap-title">Power BI</div><div class="cap-desc">Interactive KPI dashboards, DAX measures, data modeling, Power Query.</div><div class="ctags"><span class="ctag">DAX</span><span class="ctag">Reports</span></div></div></div>
-        <div class="tilt-wrap"><div class="cap-card">
-          <div class="tilt-glare"></div>
-          <div class="cap-card-img">
-            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=80&auto=format&fit=crop" alt="Deep Learning Neural Network" loading="lazy">
-          </div>
-          <span class="cap-icon">⚛️</span><div class="cap-title">Deep Learning</div><div class="cap-desc">LSTM for time-series, KNN/SVM/NN classification, MATLAB reactor simulations.</div><div class="ctags"><span class="ctag">LSTM</span><span class="ctag">TensorFlow</span></div></div></div>
-      </div>
-    </div>
+    <p class="journey-subtitle rv" style="max-width:760px;margin-inline:0;">Grouped by work I can demonstrate in projects and repositories — without subjective percentages or proficiency scores.</p>
 
-    <!-- ─── RADAR CHART ──────────────────── -->
-    <div class="radar-wrap rv">
-      <div class="radar-header">
-        <span class="radar-title">Skill Radar — Visual Overview</span>
-        <div class="radar-tabs">
-          <button class="rtab active" data-group="core"   onclick="setRadarGroup('core')">Core Skills</button>
-          <button class="rtab"        data-group="ml"     onclick="setRadarGroup('ml')">ML & AI</button>
-          <button class="rtab"        data-group="tools"  onclick="setRadarGroup('tools')">Tools & BI</button>
-        </div>
-      </div>
-      <div class="radar-inner">
-        <div class="radar-canvas-wrap">
-          <canvas id="radarCanvas" width="340" height="340"></canvas>
-          <div class="radar-tooltip" id="radarTip"></div>
-        </div>
-        <div class="radar-legend" id="radarLegend"></div>
-      </div>
-    </div>
+    <div class="skill-proof-grid rv">
+      <article class="skill-proof-card">
+        <span class="skill-kicker">Data Science</span>
+        <h3>Analysis &amp; Machine Learning</h3>
+        <p>Preparing data, engineering useful features, training models, and turning results into decision-ready analysis.</p>
+        <div class="skill-tools"><span>Python</span><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>XGBoost</span><span>Model evaluation</span></div>
+        <div class="skill-evidence"><b>Demonstrated in:</b> retail intelligence and predictive analytics work.</div>
+      </article>
 
+      <article class="skill-proof-card">
+        <span class="skill-kicker">Generative AI</span>
+        <h3>RAG &amp; Grounded Retrieval</h3>
+        <p>Building document pipelines that preserve source context and combine lexical with semantic retrieval.</p>
+        <div class="skill-tools"><span>ChromaDB</span><span>BM25</span><span>Embeddings</span><span>PDF ingestion</span><span>Source markers</span><span>Testing</span></div>
+        <div class="skill-evidence"><b>Demonstrated in:</b> Nuclear Law RAG Copilot.</div>
+      </article>
+
+      <article class="skill-proof-card">
+        <span class="skill-kicker">Computer Vision</span>
+        <h3>Deep Learning &amp; 3D Imaging</h3>
+        <p>Working with deep-learning workflows for microscopy detection, spatial analysis, and cell tracking.</p>
+        <div class="skill-tools"><span>PyTorch</span><span>3D microscopy</span><span>Detection</span><span>Tracking</span><span>Scientific visualization</span></div>
+        <div class="skill-evidence"><b>Demonstrated in:</b> BioCell 3D Cell Detection &amp; Tracking.</div>
+      </article>
+
+      <article class="skill-proof-card">
+        <span class="skill-kicker">Multimodal AI</span>
+        <h3>Speech &amp; Audio Pipelines</h3>
+        <p>Connecting transcription, speaker separation, timing alignment, and speech generation in one workflow.</p>
+        <div class="skill-tools"><span>WhisperX</span><span>ASR</span><span>Diarization</span><span>Audio alignment</span><span>Speaker-aware TTS</span></div>
+        <div class="skill-evidence"><b>Demonstrated in:</b> Smart Egyptian Dubbing.</div>
+      </article>
+
+      <article class="skill-proof-card">
+        <span class="skill-kicker">Analytics Engineering</span>
+        <h3>SQL, BI &amp; Data Storytelling</h3>
+        <p>Modeling data and building dashboards that make business performance and operational drivers easier to act on.</p>
+        <div class="skill-tools"><span>SQL</span><span>SQL Server</span><span>Power BI</span><span>DAX</span><span>Power Query</span><span>Data modeling</span></div>
+        <div class="skill-evidence"><b>Validated by:</b> Microsoft Power BI Data Analyst Associate.</div>
+      </article>
+
+      <article class="skill-proof-card">
+        <span class="skill-kicker">Delivery</span>
+        <h3>Prototypes &amp; Reproducibility</h3>
+        <p>Packaging analytical and AI work so reviewers can inspect the code, run focused checks, and follow the evidence.</p>
+        <div class="skill-tools"><span>Git</span><span>GitHub</span><span>Streamlit</span><span>Python APIs</span><span>Documentation</span><span>Automated tests</span></div>
+        <div class="skill-evidence"><b>Visible across:</b> public repositories and project evidence files.</div>
+      </article>
+    </div>
   </div>
 </section>
 <section class="sec" id="experience" data-idx="3">
@@ -5053,6 +5112,46 @@ document.querySelectorAll('[data-en]').forEach(el=>{
       mascot.classList.add('bounce');
     }
   };
+})();
+</script>
+
+<script>
+/* Subtle mascot interaction: pointer parallax, scroll response, and click reaction. */
+(function(){
+  const cat=document.getElementById('egyptCat');
+  if(!cat) return;
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let raf=0;
+  function react(){
+    cat.classList.remove('is-curious');
+    void cat.offsetWidth;
+    cat.classList.add('is-curious');
+    window.setTimeout(()=>cat.classList.remove('is-curious'),780);
+  }
+  cat.addEventListener('click',react);
+  cat.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();react();}
+  });
+  if(reduced) return;
+  window.addEventListener('pointermove',e=>{
+    if(raf) return;
+    raf=requestAnimationFrame(()=>{
+      const rect=cat.getBoundingClientRect();
+      const cx=rect.left+rect.width/2;
+      const cy=rect.top+rect.height/2;
+      const dx=Math.max(-1,Math.min(1,(e.clientX-cx)/(window.innerWidth*.42)));
+      const dy=Math.max(-1,Math.min(1,(e.clientY-cy)/(window.innerHeight*.42)));
+      cat.style.setProperty('--cat-ry',(dx*5.5).toFixed(2)+'deg');
+      cat.style.setProperty('--cat-rx',(-dy*3.5).toFixed(2)+'deg');
+      raf=0;
+    });
+  },{passive:true});
+  window.addEventListener('scroll',()=>{
+    const hero=document.getElementById('hero');
+    if(!hero) return;
+    const progress=Math.max(0,Math.min(1,-hero.getBoundingClientRect().top/window.innerHeight));
+    cat.style.setProperty('--cat-scroll',(progress*18).toFixed(1)+'px');
+  },{passive:true});
 })();
 </script>
 
