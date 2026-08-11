@@ -14,12 +14,12 @@
 <meta property="og:url" content="https://alaaelgendy22.github.io/Alaa-Elgendy/">
 <meta property="og:title" content="Alaa Elgendy — Data Scientist & AI Engineer">
 <meta property="og:description" content="Evidence-backed machine learning, RAG, multimodal AI, 3D microscopy, and analytics projects.">
-<meta property="og:image" content="https://alaaelgendy22.github.io/Alaa-Elgendy/alaa-profile.jpg">
+<meta property="og:image" content="https://alaaelgendy22.github.io/Alaa-Elgendy/alaa-elgendy.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Alaa Elgendy — Data Scientist & AI Engineer">
 <meta name="twitter:description" content="Evidence-backed machine learning, RAG, multimodal AI, 3D microscopy, and analytics projects.">
 <!-- Performance hints -->
-<link rel="preload" as="image" href="alaa-profile.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="alaa-elgendy.png" fetchpriority="high">
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1257,12 +1257,7 @@ canvas,svg *{transition:none !important;}
   position:relative;
 }
 .cert-img{
-  width:100%;height:100%;object-fit:contain;object-position:center;border-radius:12px;display:block;
-  background:#0a1628;
-}
-.cert-card.featured-cert .cert-img{
-  object-fit:contain;
-  background:linear-gradient(135deg,#071a3b,#0d2847);
+  width:100%;height:100%;object-fit:cover;border-radius:12px;display:block;
 }
 .cert-img-placeholder{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -1932,7 +1927,9 @@ footer{
   html{scroll-snap-type:none;}
   .nav-links{display:none;}
   .hero-layout{grid-template-columns:1fr;}
-  .about-grid{grid-template-columns:1fr;justify-items:center;}
+  .hex-wrap{display:none;}
+  .about-grid{grid-template-columns:1fr;}
+  .about-hex-wrap{display:none;}
   .skills-layout{grid-template-columns:1fr;}
   .exp-grid{grid-template-columns:1fr;}
   .proj-card{grid-template-columns:1fr;}
@@ -1957,218 +1954,48 @@ footer{
 }
 </style>
 <style id="professional-egyptian-refresh">
-  :root{--egypt-gold:#c9a227;--egypt-gold-soft:rgba(201,162,39,.14);--egypt-navy:#07152d;--pro-card:#0b1228;}
-  body{cursor:auto !important;}
-  html{scroll-snap-type:none !important;}
+  :root{--egypt-gold:#d8ad57;--egypt-gold-soft:rgba(216,173,87,.14);--egypt-navy:#07152d;}
+  body{cursor:auto;}
   #hero-rain-canvas,.hero-scan-beam,.scan,#trail-canvas,#cur-dot,#cur-ring,#dots,#scroll-progress,.cripple,.cburst,
-  .hero-terminal-tag,#ai-chat-btn,#ai-chat-panel,.cmd-palette-trigger,#mascot,#thought{display:none !important;}
-
-  #aurora-canvas{opacity:.22;}
-  #hero{
-    background:
-      radial-gradient(ellipse 50% 60% at 88% 40%,rgba(201,162,39,.10),transparent 55%),
-      radial-gradient(ellipse 45% 50% at 12% 30%,rgba(109,40,217,.12),transparent 55%),
-      var(--bg);
-  }
-  #hero::before{display:none;}
-  .hero-layout{
-    grid-template-columns:minmax(0,1.05fr) minmax(300px,400px);
-    gap:clamp(36px,6vw,72px);
-    align-items:center;
-  }
-  .hero-name{letter-spacing:-.04em;font-style:normal !important;margin-block-end:18px;}
+  .hero-terminal-tag,#ai-chat-btn,#ai-chat-panel,.cmd-palette-trigger{display:none !important;}
+  #mascot{display:block!important;width:132px;height:132px;bottom:24px;left:24px;filter:drop-shadow(0 18px 22px rgba(0,0,0,.34)) drop-shadow(0 0 14px rgba(216,173,87,.2));}
+  #mascot svg,#mascot .mascot-orbit{display:none!important;}
+  #mascot .mascot-cat-stage{display:block;position:absolute;inset:0;z-index:2;transform:translate(var(--cat-look-x,0),var(--cat-look-y,0)) rotate(var(--cat-look-r,0deg));transition:transform .28s ease-out!important;}
+  #mascot .mascot-cat-pose{display:block;width:100%;height:100%;object-fit:contain;position:absolute;inset:0;transition:opacity .48s cubic-bezier(.22,1,.36,1),transform .48s cubic-bezier(.22,1,.36,1),filter .48s ease!important;}
+  #mascot #mascotPose{z-index:2;opacity:1;transform:translateY(0) scale(1) rotate(0);}
+  #mascot #mascotPoseNext{z-index:3;opacity:0;transform:translateY(7px) scale(.94) rotate(2deg);filter:blur(1px);}
+  #mascot.pose-transition #mascotPose{opacity:0;transform:translateY(-5px) scale(.94) rotate(-2deg);filter:blur(1px);}
+  #mascot.pose-transition #mascotPoseNext{opacity:1;transform:translateY(0) scale(1) rotate(0);filter:blur(0);}
+  #thought{display:block!important;left:24px;bottom:148px;border-color:rgba(216,173,87,.35);background:rgba(7,21,45,.94);max-width:250px;}
+  .hex-flip-inner{transform:none!important;}
+  .hex-face-front{transform:none!important;backface-visibility:visible!important;}
+  .hex-face-back{display:none!important;}
+  #hexFrame{cursor:default!important;}
+  #aurora-canvas{opacity:.32;}
+  #hero{background:radial-gradient(circle at 82% 42%,rgba(216,173,87,.12),transparent 27%),radial-gradient(circle at 18% 32%,rgba(34,211,238,.08),transparent 34%);}
+  #hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;background-image:linear-gradient(90deg,transparent 0 49.8%,rgba(216,173,87,.08) 50%,transparent 50.2%);background-size:76px 100%;mask-image:linear-gradient(to bottom,transparent,black 24%,black 76%,transparent);}
+  .hero-layout{grid-template-columns:minmax(0,1fr) minmax(340px,480px);gap:72px;}
+  .hero-name{letter-spacing:-.055em;}
   .hero-glitch::before,.hero-glitch::after{display:none !important;}
-  .hero-name .nl2{
-    background:linear-gradient(120deg,#f8f4ea 8%,var(--egypt-gold) 78%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    -webkit-text-fill-color:transparent;
-  }
-  .logo{font-style:normal !important;}
-  .logo em{color:var(--egypt-gold);-webkit-text-fill-color:var(--egypt-gold);}
-  .typing-row{margin-top:8px;margin-block-end:16px;}
-  .hero-desc{max-width:540px;}
-  .sbadge{
-    background:rgba(16,185,129,.08);
-    border-color:rgba(16,185,129,.28);
-    letter-spacing:.08em;
-  }
-  .stats-row{gap:28px;}
-  .sv{font-style:normal !important;font-size:1.85rem;}
-  .sv em{color:var(--egypt-gold);font-style:normal;}
-
-  /* ── Professional profile card ── */
-  .hero-dash-frame,
-  .pro-profile-card{
-    padding:0 !important;
-    border:1px solid rgba(201,162,39,.22) !important;
-    border-radius:28px !important;
-    background:linear-gradient(165deg,rgba(15,23,48,.92),rgba(8,12,28,.96)) !important;
-    backdrop-filter:blur(20px) saturate(1.2) !important;
-    box-shadow:
-      0 28px 64px rgba(0,0,0,.45),
-      0 0 0 1px rgba(255,255,255,.04),
-      inset 0 1px 0 rgba(255,255,255,.06) !important;
-    animation:none !important;
-    overflow:hidden;
-    width:100%;
-    max-width:400px;
-    margin-inline:auto;
-  }
-  .hdf-corner,.hdf-topbar,.hdf-codeline,#hero-sparkline,
-  .hex-svg-ring,.hex-glow,.hex-face-back,.hchip{display:none !important;}
-
-  .pro-profile-card .pro-photo-wrap{
-    position:relative;
-    width:100%;
-    aspect-ratio:1/1.08;
-    overflow:hidden;
-    background:linear-gradient(160deg,#1a2340,#0d1528);
-  }
-  .pro-profile-card .pro-photo-wrap::after{
-    content:"";
-    position:absolute;inset:0;
-    background:linear-gradient(180deg,transparent 55%,rgba(7,12,28,.55) 100%);
-    pointer-events:none;z-index:2;
-  }
-  .pro-profile-card .pro-photo{
-    width:100%;height:100%;
-    object-fit:cover;
-    object-position:center 12%;
-    display:block;
-    transform:scale(1.02);
-  }
-  .pro-profile-card .pro-meta{
-    padding:20px 22px 22px;
-    display:flex;flex-direction:column;gap:14px;
-  }
-  .pro-profile-card .pro-meta-top{
-    display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
-  }
-  .pro-profile-card .pro-role{
-    font-size:.92rem;font-weight:700;color:#f0f4ff;line-height:1.35;letter-spacing:.01em;
-  }
-  .pro-profile-card .pro-loc{
-    font-size:.72rem;color:var(--muted);margin-top:4px;font-weight:500;
-  }
-  .pro-profile-card .pro-status{
-    flex-shrink:0;
-    display:inline-flex;align-items:center;gap:6px;
-    font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--emerald);
-    background:rgba(16,185,129,.1);
-    border:1px solid rgba(16,185,129,.28);
-    padding:5px 10px;border-radius:999px;
-    white-space:nowrap;
-  }
-  .pro-profile-card .pro-status .pulse{width:6px;height:6px;}
-  .pro-metrics{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
-  }
-  .pro-metric{
-    text-align:center;
-    padding:10px 6px;
-    border-radius:12px;
-    background:rgba(255,255,255,.03);
-    border:1px solid rgba(148,163,184,.1);
-  }
-  .pro-metric-val{
-    font-family:'JetBrains Mono',monospace;
-    font-size:.82rem;font-weight:700;
-    color:var(--egypt-gold);line-height:1.2;
-  }
-  .pro-metric-lbl{
-    font-size:.58rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
-    color:var(--muted);margin-top:4px;
-  }
-  .pro-tags{display:flex;flex-wrap:wrap;gap:6px;}
-  .pro-tags span{
-    font-size:.62rem;font-weight:600;
-    color:#c4b5fd;
-    background:rgba(139,92,246,.1);
-    border:1px solid rgba(139,92,246,.2);
-    padding:4px 9px;border-radius:6px;
-  }
-
-  /* Hide old hex structure leftovers inside pro card */
-  .pro-profile-card .hex-wrap,
-  .pro-profile-card .hex-frame,
-  .pro-profile-card .hex-flip-inner,
-  .pro-profile-card .hex-face{
-    all:unset;display:contents;
-  }
-  .pro-profile-card .hex-wrap{display:block;width:100%;height:100%;position:relative;}
-  .pro-profile-card .hex-frame,
-  .pro-profile-card .hex-flip-inner,
-  .pro-profile-card .hex-face-front{
-    display:block;width:100%;height:100%;position:relative;
-    clip-path:none !important;border-radius:0 !important;
-    transform:none !important;overflow:hidden;
-  }
-  .pro-profile-card .hex-face-front img,
-  .pro-profile-card #heroPhoto{
-    width:100%;height:100%;object-fit:cover;object-position:center 12%;display:block;
-  }
-
-  /* About photo — clean rounded portrait */
-  .about-hex-wrap{width:240px;}
-  .about-hex,.about-hex-glow{
-    clip-path:none !important;
-    border-radius:22px !important;
-    width:240px !important;height:280px !important;
-  }
-  .about-hex{
-    overflow:hidden;
-    border:1px solid rgba(201,162,39,.25);
-    box-shadow:0 18px 48px rgba(0,0,0,.35);
-  }
-  .about-hex img{object-position:center 15%;}
-  .about-hex-glow{
-    inset:-3px !important;
-    background:linear-gradient(145deg,rgba(201,162,39,.45),rgba(109,40,217,.35),rgba(34,211,238,.25)) !important;
-    filter:blur(10px);opacity:.7;
-  }
-
+  .hero-name .nl2{background:linear-gradient(120deg,#f6f1e5 5%,var(--egypt-gold) 72%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .logo em{color:var(--egypt-gold);}
+  .typing-row{margin-top:18px;}
   #skills .skills-layout,#skills .radar-wrap{display:none !important;}
   .skill-proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:34px;}
   .skill-proof-card{padding:26px;border:1px solid rgba(148,163,184,.14);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018));box-shadow:0 16px 44px rgba(0,0,0,.14);transition:transform .25s ease,border-color .25s ease,background .25s ease;}
-  .skill-proof-card:hover{transform:translateY(-4px);border-color:rgba(201,162,39,.34);background:linear-gradient(145deg,rgba(201,162,39,.07),rgba(255,255,255,.02));}
+  .skill-proof-card:hover{transform:translateY(-4px);border-color:rgba(216,173,87,.34);background:linear-gradient(145deg,rgba(216,173,87,.07),rgba(255,255,255,.02));}
   .skill-kicker{color:var(--egypt-gold);font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;}
-  .skill-proof-card h3{font-size:1.06rem;margin:10px 0 9px;color:var(--white);}
+  .skill-proof-card h3{font-size:1.06rem;margin:10px 0 9px;color:var(--text);}
   .skill-proof-card p{font-size:.77rem;line-height:1.7;color:var(--muted2);margin:0 0 17px;}
   .skill-tools{display:flex;flex-wrap:wrap;gap:7px;}
   .skill-tools span{font-size:.65rem;color:#cbd5e1;border:1px solid rgba(148,163,184,.16);background:rgba(15,23,42,.38);padding:6px 9px;border-radius:999px;}
   .skill-evidence{margin-top:17px;padding-top:14px;border-top:1px solid rgba(148,163,184,.1);font-size:.67rem;color:#94a3b8;line-height:1.5;}
-  .skill-evidence b{color:var(--egypt-gold);font-weight:700;}
-
-  [data-theme="light"] .pro-profile-card,
-  [data-theme="light"] .hero-dash-frame{
-    background:linear-gradient(165deg,#fff,#f7f8fc) !important;
-    border-color:rgba(15,23,42,.1) !important;
-    box-shadow:0 20px 48px rgba(15,23,42,.1) !important;
-  }
-  [data-theme="light"] .pro-profile-card .pro-role{color:#0f172a;}
-  [data-theme="light"] .pro-profile-card .pro-loc{color:#64748b;}
-  [data-theme="light"] .pro-metric{background:#f8fafc;border-color:#e2e8f0;}
-  [data-theme="light"] .pro-metric-val{color:#92640a;}
-  [data-theme="light"] .pro-tags span{color:#5b21b6;background:rgba(109,40,217,.06);border-color:rgba(109,40,217,.15);}
+  .skill-evidence b{color:#d8ad57;font-weight:700;}
   [data-theme="light"] .skill-proof-card{background:#fff;border-color:rgba(15,23,42,.1);box-shadow:0 14px 32px rgba(15,23,42,.06);}
   [data-theme="light"] .skill-tools span{color:#334155;background:#f8fafc;border-color:#e2e8f0;}
-  [data-theme="light"] .about-hex{border-color:rgba(15,23,42,.1);box-shadow:0 14px 36px rgba(15,23,42,.1);}
-
-  @media(max-width:900px){
-    .hero-layout{grid-template-columns:1fr;gap:28px;}
-    .pro-profile-card,.hero-dash-frame{max-width:360px;}
-    .hex-wrap{display:block !important;}
-    .about-hex-wrap{display:block !important;margin-inline:auto;}
-    .skill-proof-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
-  }
-  @media(max-width:600px){
-    .skill-proof-grid{grid-template-columns:1fr;gap:13px;}
-    .skill-proof-card{padding:21px;}
-    .pro-profile-card,.hero-dash-frame{max-width:100%;}
-    .pro-metrics{gap:6px;}
-    .pro-metric-val{font-size:.74rem;}
-  }
+  @media(max-width:900px){.hero-layout{grid-template-columns:1fr;gap:18px;}.skill-proof-grid{grid-template-columns:repeat(2,minmax(0,1fr));}#mascot{display:block!important;width:92px;height:92px;left:12px;bottom:16px;}#thought{display:block!important;left:12px;bottom:102px;max-width:205px;padding:10px 12px;font-size:.7rem;}}
+  @media(max-width:600px){.skill-proof-grid{grid-template-columns:1fr;gap:13px;}.skill-proof-card{padding:21px;}#mascot{width:78px;height:78px;bottom:12px;}#thought{bottom:86px;max-width:190px;}}
+  @media(prefers-reduced-motion:reduce){#mascot{animation:none;}}
 </style>
 </head>
 <body>
@@ -2323,19 +2150,19 @@ footer{
         <span class="hero-terminal-prompt">~/alaa $</span>
         <span class="hero-terminal-cmd" id="termCmd"></span><span class="cur"></span>
       </div>
-      <div class="sbadge rv" style="margin-top:8px;">
+      <div class="sbadge rv" style="margin-top:18px;">
         <span class="pulse"></span>
         <span data-en="Open to Data Science & AI Roles" data-ar="متاحة لفرص علوم البيانات والذكاء الاصطناعي">Open to Data Science &amp; AI Roles</span>
       </div>
-      <h1 class="hero-name rv">
+      <h1 class="hero-name rv hero-glitch" data-text="Alaa">
         Alaa<br><span class="nl2">Elgendy</span>
       </h1>
       <div class="typing-row rv">
         <span data-en="Specialized in&nbsp;" data-ar="متخصصة في&nbsp;">Specialized in&nbsp;</span>
         <span class="tw" id="tw"></span><span class="cur"></span>
       </div>
-      <p class="hero-desc rv" data-en="Data Scientist & AI Engineer with a Nuclear Engineering background. I build source-grounded RAG systems, multimodal AI, computer vision pipelines, and decision-ready analytics — with public code and evidence you can inspect." data-ar="عالمة بيانات ومهندسة ذكاء اصطناعي بخلفية هندسة نووية. أبني أنظمة RAG موثقة بالمصادر وحلول ذكاء اصطناعي متعدد الوسائط ورؤية حاسوبية وتحليلات جاهزة للقرار — بكود وأدلة عامة قابلة للمراجعة.">
-        Data Scientist &amp; AI Engineer with a Nuclear Engineering background. I build source-grounded RAG systems, multimodal AI, computer vision pipelines, and decision-ready analytics — with public code and evidence you can inspect.
+      <p class="hero-desc rv" data-en="Data Scientist & AI Engineer with a Nuclear Engineering background, building source-grounded RAG, multimodal AI, computer vision, predictive models, and decision-ready analytics." data-ar="عالمة بيانات ومهندسة ذكاء اصطناعي بخلفية هندسة نووية، أبني أنظمة RAG موثقة بالمصادر وحلول ذكاء اصطناعي متعدد الوسائط ورؤية حاسوبية ونماذج تنبؤية.">
+        Data Scientist &amp; AI Engineer with a Nuclear Engineering background, building source-grounded RAG, multimodal AI, computer vision, predictive models, and decision-ready analytics.
       </p>
       <div class="hero-ctas rv">
         <a class="btn btn-v" onclick="navTo('projects');return false" href="#" data-en="View Projects" data-ar="عرض المشاريع">View Projects</a>
@@ -2345,44 +2172,64 @@ footer{
       </div>
       <div class="stats-row rv">
         <div><div class="sv">7<em>+</em></div><div class="sl" data-en="Projects" data-ar="مشاريع">Projects</div></div>
-        <div><div class="sv">80.68<em>%</em></div><div class="sl" data-en="Thesis Accuracy" data-ar="دقة الرسالة">Thesis Accuracy</div></div>
-        <div><div class="sv">2</div><div class="sl" data-en="Verified Certs" data-ar="شهادات موثقة">Verified Certs</div></div>
+        <div><div class="sv">2024</div><div class="sl" data-en="Graduation" data-ar="التخرج">Graduation</div></div>
+        <div><div class="sv">8<em>+</em></div><div class="sl" data-en="Tech Tools" data-ar="أدوات تقنية">Tech Tools</div></div>
         <div><div class="sv">3</div><div class="sl" data-en="Featured AI Systems" data-ar="أنظمة ذكاء اصطناعي مميزة">Featured AI Systems</div></div>
       </div>
     </div>
 
-    <!-- RIGHT: professional profile card -->
-    <aside class="hero-dash-frame pro-profile-card rv" style="position:relative;z-index:3;" aria-label="Profile card">
-      <div class="pro-photo-wrap">
-        <img id="heroPhoto" class="pro-photo" src="alaa-profile.jpg" alt="Alaa Elgendy — Data Scientist &amp; AI Engineer" width="900" height="1080" fetchpriority="high" decoding="async">
+    <!-- RIGHT: professional profile image and evidence dashboard -->
+    <div class="hero-dash-frame rv" style="position:relative;z-index:3;">
+      <!-- corner brackets -->
+      <div class="hdf-corner hdf-tl"></div>
+      <div class="hdf-corner hdf-tr"></div>
+      <div class="hdf-corner hdf-bl"></div>
+      <div class="hdf-corner hdf-br"></div>
+      <!-- top status bar -->
+      <div class="hdf-topbar">
+        <span class="hdf-dot" style="background:#ff5f57;"></span>
+        <span class="hdf-dot" style="background:#febc2e;"></span>
+        <span class="hdf-dot" style="background:#28c840;"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.1em;margin-left:8px;">DATA_SCIENCE_PROFILE.py</span>
+        <span class="hdf-status"><span style="color:var(--emerald);">●</span> LIVE</span>
       </div>
-      <div class="pro-meta">
-        <div class="pro-meta-top">
-          <div>
-            <div class="pro-role">Data Scientist &amp; AI Engineer</div>
-            <div class="pro-loc">Alexandria, Egypt · Open to opportunities</div>
+      <!-- mini chart strip above photo -->
+      <canvas id="hero-sparkline" width="260" height="38" style="display:block;width:100%;height:38px;margin-bottom:6px;opacity:.8;"></canvas>
+      <!-- hex photo inside frame -->
+      <div class="hex-wrap" style="margin:0 auto;">
+        <svg class="hex-svg-ring" viewBox="0 0 340 390" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="170,8 332,90 332,300 170,382 8,300 8,90" stroke="url(#hg)" stroke-width="2" stroke-dasharray="14 7" fill="none"/>
+          <defs>
+            <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#a78bfa"/><stop offset="50%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#34d399"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="hex-glow"></div>
+        <div class="hex-frame" id="hexFrame">
+          <div class="hex-flip-inner" id="hexFlipInner">
+            <div class="hex-face hex-face-front">
+              <img id="heroPhoto" src="" alt="Alaa Elgendy" fetchpriority="high" decoding="async">
+            </div>
+            <div class="hex-face hex-face-back">
+              <div class="hex-toon">
+                <span class="hex-toon-char">🤖</span>
+                <span class="hex-toon-text">Heeey! 👋</span>
+                <span class="hex-toon-sub">I'm Alaa ✨</span>
+              </div>
+            </div>
           </div>
-          <span class="pro-status"><span class="pulse"></span> Available</span>
         </div>
-        <div class="pro-metrics">
-          <div class="pro-metric">
-            <div class="pro-metric-val">80.68%</div>
-            <div class="pro-metric-lbl">LSTM Thesis</div>
-          </div>
-          <div class="pro-metric">
-            <div class="pro-metric-val">100K+</div>
-            <div class="pro-metric-lbl">Records</div>
-          </div>
-          <div class="pro-metric">
-            <div class="pro-metric-val">2</div>
-            <div class="pro-metric-lbl">Certifications</div>
-          </div>
-        </div>
-        <div class="pro-tags">
-          <span>Python</span><span>RAG</span><span>PyTorch</span><span>Power BI</span><span>SQL</span>
-        </div>
+        <div class="hchip hc1"><span class="hcv">80.68%</span><span class="hcl">LSTM Accuracy</span></div>
+        <div class="hchip hc2"><span class="hcv">13K+</span><span class="hcl">Records Analyzed</span></div>
+        <div class="hchip hc3"><span class="hcv">6+</span><span class="hcl">Models Built</span></div>
       </div>
-    </aside>
+      <!-- bottom code line -->
+      <div class="hdf-codeline">
+        <span style="color:#6d28d9;">model</span><span style="color:#7a90b8;">.</span><span style="color:#22d3ee;">fit</span><span style="color:#7a90b8;">(X_train, y_train, </span><span style="color:#10b981;">accuracy</span><span style="color:#7a90b8;">=</span><span style="color:#f59e0b;">0.8068</span><span style="color:#7a90b8;">)</span>
+        <span class="hdf-cursor">█</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2392,7 +2239,7 @@ footer{
   <div class="about-grid">
     <div class="about-hex-wrap rv">
       <div class="about-hex-glow"></div>
-      <div class="about-hex"><img id="aboutPhoto" src="alaa-profile.jpg" alt="Alaa Elgendy" width="900" height="1080" loading="lazy" decoding="async"></div>
+      <div class="about-hex"><img id="aboutPhoto" src="" alt="Alaa Elgendy" loading="lazy" decoding="async"></div>
       <div class="about-badge" data-en="Alexandria, EG 🇪🇬" data-ar="الإسكندرية، مصر 🇪🇬">Alexandria, EG 🇪🇬</div>
     </div>
     <div class="about-text">
@@ -2686,22 +2533,22 @@ footer{
     <div class="cert-grid rv">
 
       <!-- Microsoft Power BI certification -->
-      <div class="cert-card featured-cert">
+      <div class="cert-card">
         <div class="cert-img-wrap">
-          <img src="microsoft-power-bi-certificate.jpg" alt="Microsoft Certified: Power BI Data Analyst Associate — Alaa Ahmed Elgendy" class="cert-img" loading="lazy" decoding="async">
+          <div class="cert-img-placeholder" style="background:linear-gradient(135deg,#071a3b,#123f7a);min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+            <span style="font-size:2.5rem;line-height:1;">📊</span>
+            <span class="cert-issuer">MICROSOFT CERTIFIED</span>
+          </div>
         </div>
         <div class="cert-body">
           <div class="cert-issuer-row">
             <span class="cert-issuer-badge">Microsoft</span>
-            <span class="cert-year">Jul 2026 — Jul 2027</span>
+            <span class="cert-year">2026 - 2027</span>
           </div>
-          <span class="cert-title">Microsoft Certified: Power BI Data Analyst Associate</span>
+          <span class="cert-title">Power BI Data Analyst Associate</span>
           <div class="cert-skills">
             <span class="ctag">Power BI</span><span class="ctag">DAX</span><span class="ctag">Power Query</span><span class="ctag">Data Modeling</span>
           </div>
-          <p style="font-size:.72rem;color:var(--muted);line-height:1.55;margin:0 0 12px;font-family:'JetBrains Mono',monospace;">
-            Credential ID: 22755A323E1D0726
-          </p>
           <a href="https://learn.microsoft.com/en-us/users/alaaahmedelgendy-0378/credentials/22755a323e1d0726" target="_blank" rel="noopener noreferrer" class="cert-link">
             Verify with Microsoft ↗
           </a>
@@ -3152,93 +2999,15 @@ footer{
   <div class="pj-card" id="pj-rag" data-cat="ai nuclear">
     <div class="pj-top">
       <div class="pj-img-wrap">
-        <img src="projects/nuclear-law-rag/card-thumb.jpg" alt="RAG-Powered Nuclear Law Assistant — live Streamlit interface" loading="lazy" decoding="async">
-        <div class="pj-img-overlay"></div><span class="pj-badge pj-badge--cyan">Live Demo</span>
+        <img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=900&q=80" alt="Open reference book representing source-grounded retrieval" loading="lazy">
+        <div class="pj-img-overlay"></div><span class="pj-badge pj-badge--cyan">New</span>
       </div>
       <div class="pj-info">
-        <div class="pj-year-cat"><span class="pj-year">2026</span><span class="pj-cat">RAG · Nuclear Law · Streamlit</span></div>
+        <div class="pj-year-cat"><span class="pj-year">2026</span><span class="pj-cat">RAG · Nuclear Law · Research Prototype</span></div>
         <h3 class="pj-title">Nuclear Law RAG Copilot</h3>
-        <p class="pj-summary">Source-grounded research assistant for nuclear-law PDFs: page-aware ingestion, hybrid BM25 + dense retrieval, ChromaDB persistence, and answers with supporting sources. Turns IAEA publications, treaties, and safeguards documents into <strong>relevant evidence in seconds</strong>.</p>
-        <div class="pj-tags"><span class="pj-tag">Streamlit</span><span class="pj-tag">BM25</span><span class="pj-tag">Embeddings</span><span class="pj-tag">ChromaDB</span><span class="pj-tag">RAG</span></div>
-        <div class="pj-link-row" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
-          <a class="pj-expand-btn pj-expand-btn--cyan-solid" href="https://nuclear-law-rag-3iuzvrxbmvteg5auvysfuv.streamlit.app/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">Open Live Demo ↗</a>
-          <a class="pj-expand-btn" href="https://github.com/alaaelgendy22/nuclear-law-rag" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">GitHub ↗</a>
-          <button class="pj-expand-btn" onclick="toggleProject('rag',this)" aria-expanded="false">
-            <span class="pj-expand-label">View Project Details</span>
-            <svg class="pj-expand-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="pj-drawer" id="pj-drawer-rag">
-      <div class="pj-drawer-inner">
-        <div class="pj-stats">
-          <div class="pj-stat"><div class="pj-stat-val" style="color:#22d3ee">RAG</div><div class="pj-stat-lbl">Architecture</div></div>
-          <div class="pj-stat"><div class="pj-stat-val" style="color:#8b5cf6">Hybrid</div><div class="pj-stat-lbl">BM25 + Dense</div></div>
-          <div class="pj-stat"><div class="pj-stat-val" style="color:#10b981">Live</div><div class="pj-stat-lbl">Streamlit App</div></div>
-          <div class="pj-stat"><div class="pj-stat-val" style="color:#f59e0b">Sources</div><div class="pj-stat-lbl">Grounded Answers</div></div>
-        </div>
-        <div class="pj-meta-row">
-          <div class="pj-meta-chip">👤 <strong>Role:</strong> AI / RAG Engineer</div>
-          <div class="pj-meta-chip">📁 <strong>Type:</strong> Research Prototype + Live Demo</div>
-          <div class="pj-meta-chip">🔗 <strong>Domain:</strong> Nuclear Law &amp; Safeguards</div>
-        </div>
-
-        <div class="pj-gallery" aria-label="Nuclear Law RAG project visuals">
-          <figure class="pj-gallery-item">
-            <img src="projects/nuclear-law-rag/hero.jpg" alt="RAG-Powered Nuclear Law Assistant hero" loading="lazy" decoding="async">
-            <figcaption>Product overview</figcaption>
-          </figure>
-          <figure class="pj-gallery-item">
-            <img src="projects/nuclear-law-rag/challenge.jpg" alt="The challenge: too much nuclear-law information, too little time" loading="lazy" decoding="async">
-            <figcaption>The challenge</figcaption>
-          </figure>
-          <figure class="pj-gallery-item">
-            <img src="projects/nuclear-law-rag/how-it-works.jpg" alt="How the RAG pipeline works in four steps" loading="lazy" decoding="async">
-            <figcaption>How it works</figcaption>
-          </figure>
-          <figure class="pj-gallery-item">
-            <img src="projects/nuclear-law-rag/what-we-built.jpg" alt="What we built: Nuclear Law Assistant interface features" loading="lazy" decoding="async">
-            <figcaption>What we built</figcaption>
-          </figure>
-        </div>
-
-        <div class="pj-sections">
-          <div class="pj-block">
-            <div class="pj-block-title">🎯 Problem</div>
-            <p class="pj-block-text">Nuclear-law research spans IAEA publications, treaties, safeguards agreements, and dense legal guidance. Finding the <strong>right evidence quickly</strong> is hard when the corpus is large and time is limited.</p>
-          </div>
-          <div class="pj-block">
-            <div class="pj-block-title">⚙️ Solution</div>
-            <p class="pj-block-text">A Streamlit RAG copilot that ingests trusted PDFs/URLs, builds a searchable knowledge base with embeddings + lexical search, retrieves the most relevant context, and returns a <strong>grounded answer with source markers</strong>.</p>
-          </div>
-          <div class="pj-block">
-            <div class="pj-block-title">🔁 Pipeline</div>
-            <div class="pj-steps">
-              <div class="pj-step"><span class="pj-step-n">01</span><span><strong>Ingest</strong> — process trusted PDFs and documents</span></div>
-              <div class="pj-step"><span class="pj-step-n">02</span><span><strong>Index</strong> — create embeddings and search semantically</span></div>
-              <div class="pj-step"><span class="pj-step-n">03</span><span><strong>Retrieve</strong> — pull the most relevant context chunks</span></div>
-              <div class="pj-step"><span class="pj-step-n">04</span><span><strong>Answer</strong> — generate a grounded response with sources</span></div>
-            </div>
-          </div>
-          <div class="pj-block">
-            <div class="pj-block-title">🔧 Tech Stack</div>
-            <div class="pj-tech">
-              <span class="pj-tech-tag">Python</span><span class="pj-tech-tag">Streamlit</span><span class="pj-tech-tag">ChromaDB</span><span class="pj-tech-tag">BM25</span><span class="pj-tech-tag">Sentence Transformers</span><span class="pj-tech-tag">PDF Ingestion</span>
-            </div>
-          </div>
-          <div class="pj-block" style="text-align:center;">
-            <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
-              <a href="https://nuclear-law-rag-3iuzvrxbmvteg5auvysfuv.streamlit.app/" class="pj-expand-btn pj-expand-btn--cyan-solid" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-                <span class="pj-expand-label">Launch Live Demo</span>
-                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
-              </a>
-              <a href="https://github.com/alaaelgendy22/nuclear-law-rag" class="pj-expand-btn" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-                <span class="pj-expand-label">View Repository</span>
-              </a>
-            </div>
-          </div>
-        </div>
+        <p class="pj-summary">Early source-grounded research assistant for nuclear-law PDFs with page-aware ingestion, hybrid BM25 and dense retrieval, persistent ChromaDB storage, provider adapters, and guarded PDF ingestion. <strong>Seven focused tests pass</strong>; retrieval-quality benchmarking remains explicitly open.</p>
+        <div class="pj-tags"><span class="pj-tag">Streamlit</span><span class="pj-tag">BM25</span><span class="pj-tag">Sentence Transformers</span><span class="pj-tag">ChromaDB</span><span class="pj-tag">RAG</span></div>
+        <div class="pj-link-row"><a class="pj-expand-btn" href="https://github.com/alaaelgendy22/nuclear-law-rag" target="_blank" rel="noopener noreferrer">View repository ↗</a><a class="pj-evidence-link" href="https://github.com/alaaelgendy22/nuclear-law-rag/blob/main/EVIDENCE.md" target="_blank" rel="noopener noreferrer">Inspect evidence</a></div>
       </div>
     </div>
   </div>
@@ -3691,8 +3460,7 @@ footer{
 (function(){
   const imgs = [document.getElementById('heroPhoto'), document.getElementById('aboutPhoto')];
   imgs.forEach(img => {
-    if(img && !img.getAttribute('src')) img.src = 'alaa-profile.jpg';
-    else if(img && /alaa-elgendy\.png/i.test(img.getAttribute('src')||'')) img.src = 'alaa-profile.jpg';
+    if(img) img.src = 'alaa-elgendy.png';
   });
 })();
 
@@ -5997,7 +5765,7 @@ document.querySelectorAll('[data-en]').forEach(el=>{
     },
     ai_projects: {
       keywords:['ai','machine learning','ml','lstm','deep learning','neural','project','nuclear','loca','reactor','classify','predict','human performance'],
-      answer(){ return `🤖 <strong>Featured AI Projects:</strong><br><br><strong>1. Nuclear Law RAG Copilot</strong><br>Source-grounded nuclear-law assistant with hybrid retrieval and a <a href="https://nuclear-law-rag-3iuzvrxbmvteg5auvysfuv.streamlit.app/" target="_blank" rel="noopener">live Streamlit demo</a>.<br><br><strong>2. Smart Egyptian Dubbing</strong><br>Multimodal localization pipeline with ASR, diarization, and speaker-aware TTS.<br><br><strong>3. BioCell 3D Detection & Tracking</strong><br>PyTorch 3D microscopy workflow plus visualization app.<br><br>Open the <a href="javascript:void(0)" onclick="navTo('projects');document.getElementById('ai-chat-panel').classList.remove('open');document.getElementById('ai-chat-btn').classList.remove('open')">Projects section</a> for galleries and repositories.`; }
+      answer(){ return `🤖 <strong>Featured AI Projects:</strong><br><br><strong>1. Smart Egyptian Dubbing</strong><br>Multimodal localization pipeline with aligned ASR, diarization, speaker-aware TTS, and evidence-backed corpus preparation.<br><br><strong>2. BioCell 3D Detection & Tracking</strong><br>PyTorch 3D microscopy workflow plus a lightweight visualization app.<br><br><strong>3. Nuclear Law RAG Copilot</strong><br>Page-aware hybrid retrieval with grounded source markers and focused tests.<br><br>Open the <a href="javascript:void(0)" onclick="navTo('projects');document.getElementById('ai-chat-panel').classList.remove('open');document.getElementById('ai-chat-btn').classList.remove('open')">Projects section</a> to inspect the repositories and evidence.`; }
     },
     cv: {
       keywords:['cv','resume','download','hire','contact','email','get in touch','reach','linkedin'],
@@ -6293,63 +6061,6 @@ If asked to download CV, give the email. If asked about something unrelated to A
   background:linear-gradient(135deg,#fbbf24,#f59e0b);
   color:#1a1002;box-shadow:0 10px 28px rgba(245,158,11,.5);
   transform:translateY(-2px);
-}
-.pj-expand-btn--cyan-solid{
-  background:linear-gradient(135deg,#0891b2,#22d3ee);
-  border-color:transparent;color:#041018;
-  box-shadow:0 6px 20px rgba(34,211,238,.35);
-  font-weight:800;
-}
-.pj-expand-btn--cyan-solid:hover{
-  background:linear-gradient(135deg,#22d3ee,#67e8f9);
-  color:#041018;box-shadow:0 10px 28px rgba(34,211,238,.5);
-  transform:translateY(-2px);
-}
-
-/* Project image gallery */
-.pj-gallery{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:12px;
-  margin:0 0 24px;
-}
-.pj-gallery-item{
-  margin:0;
-  border-radius:14px;
-  overflow:hidden;
-  border:1px solid rgba(139,92,246,.18);
-  background:rgba(6,10,32,.85);
-  transition:border-color .25s, transform .25s, box-shadow .25s;
-}
-.pj-gallery-item:hover{
-  border-color:rgba(34,211,238,.4);
-  transform:translateY(-3px);
-  box-shadow:0 12px 28px rgba(0,0,0,.35);
-}
-.pj-gallery-item img{
-  width:100%;
-  aspect-ratio:3/4;
-  object-fit:cover;
-  object-position:top center;
-  display:block;
-  background:#0a1228;
-}
-.pj-gallery-item figcaption{
-  font-size:.68rem;
-  font-weight:700;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:var(--muted2);
-  padding:8px 10px 10px;
-  text-align:center;
-}
-[data-theme="light"] .pj-gallery-item{background:#fff;border-color:rgba(109,40,217,.12);}
-[data-theme="light"] .pj-gallery-item figcaption{color:#64748b;}
-@media(max-width:900px){
-  .pj-gallery{grid-template-columns:repeat(2,minmax(0,1fr));}
-}
-@media(max-width:520px){
-  .pj-gallery{grid-template-columns:1fr 1fr;gap:8px;}
 }
 .pj-expand-icon{
   transition:transform .3s var(--spring);flex-shrink:0;
